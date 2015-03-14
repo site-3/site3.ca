@@ -50,3 +50,7 @@ group :development, :test do
   gem 'rspec-its'
   gem 'guard-rspec'
 end
+
+group :test do
+  gem 'database_cleaner'
+end
