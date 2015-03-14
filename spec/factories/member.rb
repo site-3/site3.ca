@@ -5,5 +5,6 @@ FactoryGirl.define do
     # this doesn't quite look like a Stripe customer id
     stripe_id { "cus_#{ SecureRandom.hex(7) }" }
     rfid { SecureRandom.hex(4) }
+    password { Faker::Internet.password }
   end
 end
