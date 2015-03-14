@@ -11,25 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314165814) do
+ActiveRecord::Schema.define(version: 20150314183538) do
 
   create_table "members", force: :cascade do |t|
-    t.text     "name",                                null: false
-    t.text     "email",                  default: "", null: false
+    t.text     "name",                                   null: false
+    t.text     "email",                  default: "",    null: false
     t.text     "rfid"
     t.text     "stripe_id"
     t.text     "notes"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "enable_vending_machine", default: false, null: false
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true

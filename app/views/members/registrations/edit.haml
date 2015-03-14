@@ -1,24 +1,31 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
+%h2 Settings
+
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
 
   .form-group
+    %label
+      = f.check_box :enable_vending_machine
+      Allow your fob to make purchases from the vending machines
+
+  .form-group
     = f.label :email, class: 'control-label'
-    = f.email_field :email, autofocus: true, class: 'form-control'
+    = f.email_field :email, class: 'form-control'
 
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     .form-group
       %p.help-block Currently waiting confirmation for: #{resource.unconfirmed_email}
 
-  .form-group
-    = f.label :password, class: 'control-label'
-    = f.password_field :password, autocomplete: "off", class: 'form-control'
-    %p.help-block (leave blank if you don't want to change it)
-
-  .form-group
-    = f.label :password_confirmation, class: 'control-label'
-    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+  .row
+    .col-sm-6
+      .form-group
+        = f.label :password, class: 'control-label'
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
+        %p.help-block (leave blank if you don't want to change it)
+    .col-sm-6
+      .form-group
+        = f.label :password_confirmation, class: 'control-label'
+        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
 
   .form-group
     = f.label :current_password, class: 'control-label'
@@ -26,9 +33,4 @@
     %p.help-block (we need your current password to confirm your changes)
 
   .form-actions
-    = f.submit "Update"
-
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+    = f.submit "Update Settings", class: 'btn btn-primary'
