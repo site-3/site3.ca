@@ -1,5 +1,12 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_member!
+
+  # TODO make sure that displaying e.message isn't a security risk
+
   def index
+    @charges = Stripe::Charge.all(customer: current_member.stripe_id)
+  rescue Exception => e
+    flash[:alert] = e.message
   end
 
   def create
