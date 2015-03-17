@@ -46,6 +46,14 @@ RSpec.describe PurchasesController, type: :controller do
             expect(response.body).to eq({status: 1}.to_json)
           end
         end
+
+        context "with incorrect token" do
+          let(:token) { "notavalidtoken" }
+          it "fails" do
+            go!(member.rfid, token=token)
+            expect(response.body).to eq({status: 1}.to_json)
+          end
+        end
       end
     end
   end

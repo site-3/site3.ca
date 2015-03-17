@@ -13,8 +13,11 @@ class PurchasesController < ApplicationController
   # The member must have `enable_vending_machine` to be able to make the purchase.
   # This method always responds in json and when it is not successful it does NOT
   # explain why.
-  # TODO make the vending machine verify itself
   def create
+    token = params[:token]
+    raise "No vending_machine_token secret"  if Rails.application.secrets.vending_machine_token.nil?
+    raise "Incorrect token"  unless token == Rails.application.secrets.vending_machine_token
+
     rfid = params[:rfid]
     @member = Member.where(rfid: rfid, enable_vending_machine: true).first!
 
