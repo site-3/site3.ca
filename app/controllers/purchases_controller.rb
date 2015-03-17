@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_member!, only: [:index]
+  skip_before_filter :verify_authenticity_token, :only => [:create]
 
   # TODO make sure that displaying e.message isn't a security risk
 
