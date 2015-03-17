@@ -1,5 +1,5 @@
 class PurchasesController < ApplicationController
-  before_action :authenticate_member!
+  before_action :authenticate_member!, only: [:index]
 
   # TODO make sure that displaying e.message isn't a security risk
 
@@ -9,22 +9,27 @@ class PurchasesController < ApplicationController
     flash[:alert] = e.message
   end
 
+  # Create a vending machine purchase by looking up the member by rfid.
+  # The member must have `enable_vending_machine` to be able to make the purchase.
+  # This method always responds in json and when it is not successful it does NOT
+  # explain why.
+  # TODO make the vending machine verify itself
   def create
-    # Amount in cents
+    rfid = params[:rfid]
+    @member = Member.where(rfid: rfid, enable_vending_machine: true).first!
+
+    # Amount in cents, we set this not the vending machine
     @price = 500
 
-    charge = Stripe::Charge.create(
-      :customer    => "cus_5qHyRFvmydfit6",
+    Stripe::Charge.create(
+      :customer    => @member.stripe_id,
       :amount      => @price,
       :description => 'Vending machine refreshment',
       :currency    => 'cad'
     )
 
-    flash[:notice] = "Charge successful"
-    redirect_to purchases_path
-
+    render json: {status: 0}
   rescue Exception => e
-    flash[:alert] = e.message
-    redirect_to purchases_path
+    render json: {status: 1}
   end
 end
