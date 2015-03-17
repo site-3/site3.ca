@@ -6,8 +6,8 @@ RSpec.describe PurchasesController, type: :controller do
     before { StripeMock.start }
     after { StripeMock.stop }
 
-    def go!(rfid)
-      post :create, {rfid: rfid}
+    def go!(rfid, token=Rails.application.secrets.vending_machine_token)
+      post :create, {rfid: rfid, token: token}
     end
 
     context "for an unknown rfid" do
