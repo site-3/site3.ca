@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= body_classes %>">
   <div id="pre-footer">
     <div id="background-mask"></div>
     <%= render partial: 'layouts/top_nav' %>

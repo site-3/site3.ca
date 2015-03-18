@@ -1,0 +1,25 @@
+// orange as main
+$brandColor: rgb(255, 141, 0);
+$altBrandColor: #13a89e;
+
+// teal as main
+$brandColor: #13a89e;
+$altBrandColor: rgb(255, 141, 0);
+
+// gray/blue as main
+$brandColor: #708690;
+$altBrandColor: rgb(255, 141, 0);
+
+$brightBrandColor: $altBrandColor;
+
+$headerColor: $brandColor;
+$linkColor: $altBrandColor;
+$linkHoverColor: darken($linkColor, 8%);
+
+$headerBackgroundColor: rgba(255, 255, 255, .85);
+$headerBrandLinkColor: $brandColor;
+
+$textColor: #4d4d4d;
+$lightTextColor: #999;
+
+$borderColor: rgba(0, 0, 0, .15)

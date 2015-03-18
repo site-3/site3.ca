@@ -1,0 +1,33 @@
+h1,h2,h3,h4,h5 {
+  font-weight: normal;
+  line-height: 1.1;
+  margin: .4em 0;
+  color: $headerColor;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-hight: 1;
+}
+
+.content {
+  h1:first-child {
+    margin-top: -.2em;
+  }
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-top: 1em;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+.sub-heading {
+  margin-top: -10px;
+  font-size: 1.2em;
+  margin-bottom: .5em;
+}

@@ -1,0 +1,122 @@
+#footer {
+  font-size: 12pt;
+  background: $headerBackgroundColor;
+
+  .container {
+    padding: 1em 0;
+  }
+
+  .heading {
+    margin-bottom: .25em;
+    margin-top: 0;
+  }
+
+  .hours {
+    h3 {
+      padding-bottom: 6px;
+    }
+    td {
+      padding-right: 1em;
+    }
+    .member-hours {
+      color: $lightTextColor;
+      td {
+        padding-top: 6px;
+      }
+    }
+    span {
+      color: $lightTextColor;
+    }
+  }
+
+  .footer-contact {
+    padding-top: 0;
+
+    text-align: center;
+    p {
+      margin: 0;
+    }
+
+    .social-icon {
+      @include hide-text;
+      margin-left: 10px;
+      vertical-align: middle;
+      height: 20px;
+      width: 22px;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      &.social-icon-twitter {
+        background-image: image-url('twitter-logo.png');
+      }
+
+      &.social-icon-facebook {
+        background-image: image-url('facebook-logo.png');
+      }
+    }
+  }
+
+  #promo-section {
+    display: block;
+    height: 140px;
+    background-color: $footerBoxBackground;
+    background-image: image-url('promo-halloween-party-2014.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right center;
+
+    color: $textColor;
+
+    &:hover {
+      text-decoration: none;
+
+      @extend .bordered-box-hover;
+    }
+
+    .promo-content {
+      padding-top: 20px;
+      padding-left: 10px;
+      padding-right: 100px;
+      color: white;
+
+      h3 {
+        color: $brightBrandColor;
+        padding-bottom: 3px;
+      }
+
+      .small {
+        color: $lightTextColor;
+      }
+    }
+  }
+
+  .footer-map {
+    text-align: right;
+
+    #footer-map-holder {
+      background: $footerBoxBackground;
+      @extend .bordered-box;
+      float: right;
+      height: 140px;
+      width: 320px;
+    }
+
+    #footer-map {
+      height: 100%;
+      width: 100%;
+    }
+
+    a {
+      display: block;
+      clear: both;
+    }
+  }
+
+  @media (min-width: $medium-breakpoint) and (max-width: 1060px) {
+    .hours td {
+      display: inline-block;
+      padding-right: .5em;
+    }
+  }
+}
