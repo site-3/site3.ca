@@ -3,7 +3,8 @@
   background: $headerBackgroundColor;
 
   .container {
-    padding: 1em 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
   }
 
   .heading {
@@ -16,7 +17,10 @@
       padding-bottom: 6px;
     }
     td {
-      padding-right: .5em;
+      padding-right: .25em;
+      &:last-child {
+        padding-right: 0;
+      }
     }
     .member-hours {
       color: $lightTextColor;

@@ -68,7 +68,7 @@ a:focus, .btn:focus {
 }
 
 @media (min-width: $screen-xs-min) {
-  body {
+  body.static-pages {
     background-image: image-url('bg.jpg');
     background-size: cover;
   }

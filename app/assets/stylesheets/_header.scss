@@ -2,12 +2,13 @@
   $headerLinkColor: $headerFooterTextColor;
   $headerLinkHoverColor: #000;
   $header-height: 70px;
+  $headerBackgroundSmallColor: #fff;
 
   min-height: $header-height;
   border: none;
   width: 100%;
-  background: $headerBackgroundColor;
   @include border-radius(0);
+  background: $headerBackgroundSmallColor;
 
   .container {
     z-index: 1;
@@ -73,7 +74,17 @@
     }
   }
 
+  @media (max-width: $screen-sm-max) {
+    .navbar-collapse {
+      .nav {
+        padding-top: 1em;
+      }
+    }
+  }
+
   @media (min-width: $screen-sm-min) {
+    background: $headerBackgroundColor;
+
     .nav {
       a {
         line-height: $header-height;
