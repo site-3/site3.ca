@@ -1,20 +1,22 @@
 #header {
   $headerLinkColor: $headerFooterTextColor;
   $headerLinkHoverColor: #000;
+  $header-height: 70px;
 
-  min-height: 70px;
+  min-height: $header-height;
   border: none;
   width: 100%;
   background: $headerBackgroundColor;
+  @include border-radius(0);
 
   .container {
     z-index: 1;
   }
 
   .navbar-brand {
-    float: left;
-    margin-top: .5em;
-    padding-left: 100px;
+    padding-top: 0;
+    padding-left: 90px;
+    position: relative;
 
     .header-logo {
       $image-width: 80px;
@@ -29,11 +31,13 @@
       height: $image-height;
     }
 
-    a {
+    .title {
       color: $brandColor;
       font-size: 23pt;
+      padding-top: 10px;
       line-height: 1;
       text-wrap: nowarp;
+      display: inline-block;
 
       &:hover {
         color: $headerBrandLinkColor;
@@ -50,6 +54,9 @@
 
   .nav {
     a {
+      line-height: $header-height;
+      padding-top: 0;
+      padding-bottom: 0;
       text-transform: uppercase;
       font-weight: bold;
       color: $headerLinkColor;

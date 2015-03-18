@@ -14,7 +14,3 @@
 @import "static_pages/home";
 @import "static_pages/location";
 @import "static_pages/projects";
-
-@media (max-width: $medium-breakpoint) {
-  @import "mobile";
-}

@@ -1,9 +1,9 @@
 #header.navbar.navbar-default
   .container
     .navbar-header
-      .navbar-brand
+      %a.navbar-brand{href: root_path}
         .header-logo
-        Site 3 coLaboratory
+        %span.title Site 3 coLaboratory
         %span.tagline Art and technology workspace
       %button{type: :button, class: "navbar-toggle collapsed", "data-toggle" => "collapse", "data-target" => "#header-navbar-collapse"}
         %span.sr-only Toggle navigation

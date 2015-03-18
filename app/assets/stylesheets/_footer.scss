@@ -16,7 +16,7 @@
       padding-bottom: 6px;
     }
     td {
-      padding-right: 1em;
+      padding-right: .5em;
     }
     .member-hours {
       color: $lightTextColor;
@@ -99,7 +99,7 @@
       @extend .bordered-box;
       float: right;
       height: 140px;
-      width: 320px;
+      width: 100%;
     }
 
     #footer-map {
@@ -113,10 +113,34 @@
     }
   }
 
-  @media (min-width: $medium-breakpoint) and (max-width: 1060px) {
+  @media (min-width: $screen-lg-min) {
     .hours td {
-      display: inline-block;
-      padding-right: .5em;
+      padding-right: 1em;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    .footer-map {
+      margin-top: 1em;
+    }
+
+    #promo-section {
+      margin: 20px 0;
+    }
+
+    .footer-map #footer-map-holder {
+      width: 100%;
+    }
+
+    .nav {
+      list-style: none;
+      text-align: center;
+      margin: 0 0 8px 0;
+
+      a {
+        padding: 4px 0;
+        display: block;
+      }
     }
   }
 }

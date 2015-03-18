@@ -54,9 +54,9 @@ $(document).ready ->
   # keep the landing div centered
   $(window).on 'resize', ->
     $window = $(window)
-    $landing = $('.page-landing .hero-content')
-    $header = $('.header')
-    $footer = $('.footer')
+    $landing = $('.static-pages-home .hero-content')
+    $header = $('#header')
+    $footer = $('#footer')
     marginTop = Math.max(0, ($window.height() - $header.height() - $footer.height() - $landing.height() - 80) / 2)
     $landing.css 'marginTop', marginTop
     return

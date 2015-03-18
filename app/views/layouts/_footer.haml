@@ -2,7 +2,7 @@
 #footer
   .container
     .row
-      .col-md-4.hours
+      .col-md-4.col-sm-6.hours
         %h3.heading Hours
         %table
           %tr
@@ -27,12 +27,13 @@
           %tr.member-hours
             %td(colspan="3")
               %a{href: membership_path} core members get 24/7 access &raquo;
-      .col-md-4
+      .col-md-4.col-sm-6
         %a#promo-section{href: t("urls.eventbrite"), target: "_blank"}
           .promo-content
             %h3 Take a class!
             Learn woodworking, glassworking, and more!
-      .col-md-4.footer-map
+      .clearfix.visible-sm-block
+      .col-md-4.col-sm-12.footer-map
         #footer-map-holder
           #footer-map
         %a{href: location_path} view full map and location &raquo;
