@@ -7,10 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render partial: 'layouts/top_nav' %>
-<div class="container">
-  <%= render partial: 'layouts/flashes' %>
-  <%= yield %>
-</div>
+  <div id="pre-footer">
+    <div id="background-mask"></div>
+    <%= render partial: 'layouts/top_nav' %>
+    <div class="container">
+      <%= render partial: 'layouts/flashes' %>
+      <%= yield %>
+    </div>
+  </div
+  <%= render partial: 'layouts/footer' %>
 </body>
 </html>
