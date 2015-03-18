@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require cufon
+//= require neutra.font
 //= require_tree .
