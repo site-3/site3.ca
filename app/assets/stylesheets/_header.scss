@@ -52,11 +52,12 @@
     }
   }
 
+  .navbar-collapse {
+    border: none;
+  }
+
   .nav {
     a {
-      line-height: $header-height;
-      padding-top: 0;
-      padding-bottom: 0;
       text-transform: uppercase;
       font-weight: bold;
       color: $headerLinkColor;
@@ -66,10 +67,20 @@
         background: transparent;
       }
     }
+
+    .nav > li:first-child > a {
+      padding-left: 0;
+    }
   }
 
-  .nav > li:first-child > a {
-    padding-left: 0;
+  @media (min-width: $screen-sm-min) {
+    .nav {
+      a {
+        line-height: $header-height;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
   }
 
   @media (min-width: 1170px) {
