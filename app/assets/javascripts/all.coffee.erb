@@ -1,24 +1,19 @@
 setupFooterMap = ->
   map = undefined
 
-  initialize = ->
-    site3 = new (google.maps.LatLng)(43.661375, -79.426088)
-    mapOptions = 
-      zoom: 14
-      center: site3
-      mapTypeControl: false
-      scrollwheel: false
-    map = new (google.maps.Map)(document.getElementById('footer-map'), mapOptions)
-    marker = new (google.maps.Marker)(
-      position: site3
-      map: map
-      title: 'Site 3'
-      icon: "<%= image_path 'map-marker.png' %>"
-    )
-    return
-
-  google.maps.event.addDomListener window, 'load', initialize
-  return
+  site3 = new (google.maps.LatLng)(43.661375, -79.426088)
+  mapOptions = 
+    zoom: 14
+    center: site3
+    mapTypeControl: false
+    scrollwheel: false
+  map = new (google.maps.Map)(document.getElementById('footer-map'), mapOptions)
+  marker = new (google.maps.Marker)(
+    position: site3
+    map: map
+    title: 'Site 3'
+    icon: "<%= image_path 'map-marker.png' %>"
+  )
 
 setupLocationMap = ->
   mapDivId = 'map'
@@ -26,29 +21,24 @@ setupLocationMap = ->
   infoWindowContent = '<div style="width: 280px;"><img src="'+image+'" style="float: left; height: 90px; margin-right: 10px;" /><strong>Site 3 coLaboratory</strong><br />718R Ossington Ave<br />Toronto ON M6G&nbsp;2T7<br /><br />In the alley behind the church</div>'
   map = undefined
 
-  initialize = ->
-    site3 = new (google.maps.LatLng)(43.661375, -79.426088)
-    mapOptions = 
-      zoom: 17
-      center: site3
-      mapTypeId: google.maps.MapTypeId.HYBRID
-    map = new (google.maps.Map)(document.getElementById(mapDivId), mapOptions)
-    marker = new (google.maps.Marker)(
-      position: site3
-      map: map
-      title: 'Site 3'
-      icon: "<%= image_path 'map-marker.png' %>"
-      )
-    infoWindow = new (google.maps.InfoWindow)(
-      position: site3
-      pixelOffset: new (google.maps.Size)(0, -45)
-      content: infoWindowContent
-      maxWidth: 400)
-    infoWindow.open map
-    return
-
-  google.maps.event.addDomListener window, 'load', initialize
-  return
+  site3 = new (google.maps.LatLng)(43.661375, -79.426088)
+  mapOptions = 
+    zoom: 17
+    center: site3
+    mapTypeId: google.maps.MapTypeId.HYBRID
+  map = new (google.maps.Map)(document.getElementById(mapDivId), mapOptions)
+  marker = new (google.maps.Marker)(
+    position: site3
+    map: map
+    title: 'Site 3'
+    icon: "<%= image_path 'map-marker.png' %>"
+    )
+  infoWindow = new (google.maps.InfoWindow)(
+    position: site3
+    pixelOffset: new (google.maps.Size)(0, -45)
+    content: infoWindowContent
+    maxWidth: 400)
+  infoWindow.open map
 
 $(document).ready ->
   # keep the landing div centered
@@ -63,7 +53,7 @@ $(document).ready ->
   $(window).trigger 'resize'
   return
 
-setupFooterMap()
-
-if window.location.pathname == "/location"
-  setupLocationMap()
+window.googleMapsLoad = ->
+  setupFooterMap()
+  if window.location.pathname == "/location"
+    setupLocationMap()
