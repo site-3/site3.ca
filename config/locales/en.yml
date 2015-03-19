@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  email: info@site3.ca
+  urls:
+    twitter: https://twitter.com/site3colab
+    facebook: https://facebook.com/site3colab
+    eventbrite: http://site3.eventbrite.ca

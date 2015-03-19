@@ -1,0 +1,44 @@
+/ footer
+#footer
+  .container
+    .row
+      .col-md-4.col-sm-6.hours
+        %h3.heading Hours
+        %table
+          %tr
+            %td Monday
+            %td 4 &ndash; 11pm
+            %td <span>Associates &amp; Core</span>
+          %tr
+            %td Tuesday
+            %td 7 &ndash; 10pm
+            %td
+              %a.callout{href: "#{classes_path}#ladies-lgbtq-open-studio"} Ladies + LGBTQ
+          %tr
+            %td Thursday
+            %td 7 &ndash; late
+            %td
+              %a.callout{href: "#{classes_path}#open-house"} Public open house
+          %tr
+            %td Sat &amp; Sun
+            %td 12 &ndash; 6pm
+            %td
+              %spanAssociates &amp; Core
+          %tr.member-hours
+            %td(colspan="3")
+              %a{href: membership_path} core members get 24/7 access &raquo;
+      .col-md-4.col-sm-6
+        %a#promo-section{href: t("urls.eventbrite"), target: "_blank"}
+          .promo-content
+            %h3 Take a class!
+            Learn woodworking, glassworking, and more!
+      .clearfix.visible-sm-block
+      .col-md-4.col-sm-12.footer-map
+        #footer-map-holder
+          #footer-map
+        %a{href: location_path} view full map and location &raquo;
+
+    .footer-contact
+      = mail_to t("email")
+      %a.social-icon.social-icon-twitter{href: t("urls.twitter"), target: "_blank"} Twitter
+      %a.social-icon.social-icon-facebook{href: t("urls.facebook"), target: "_blank"} Facebook

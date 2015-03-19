@@ -1,6 +1,19 @@
-.navbar.navbar-default
+#header.navbar.navbar-default
   .container
     .navbar-header
-      .navbar-brand Site 3 coLaboratory
-      %ul.nav.navbar-nav
-        %li= link_to "Settings", edit_member_registration_path
+      %a.navbar-brand{href: root_path}
+        .header-logo
+        %span.title Site 3 coLaboratory
+        %span.tagline Art and technology workspace
+      %button{type: :button, class: "navbar-toggle collapsed", "data-toggle" => "collapse", "data-target" => "#header-navbar-collapse"}
+        %span.sr-only Toggle navigation
+        .icon-bar
+        .icon-bar
+        .icon-bar
+
+    #header-navbar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to "About", about_path
+        %li= link_to "Membership", membership_path
+        %li= link_to "Events / Classes", classes_path
+        %li= link_to "Projects", projects_path

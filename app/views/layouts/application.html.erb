@@ -3,14 +3,22 @@
 <head>
   <title>Site3Members</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<%= render partial: 'layouts/top_nav' %>
-<div class="container">
-  <%= render partial: 'layouts/flashes' %>
-  <%= yield %>
-</div>
+<body class="<%= body_classes %>">
+  <div id="pre-footer">
+    <div id="background-mask"></div>
+    <%= render partial: 'layouts/top_nav' %>
+    <%= render partial: 'layouts/flashes' %>
+    <div id="main" class="container">
+      <%= yield %>
+    </div>
+  </div>
+  <%= render partial: 'layouts/footer' %>
+  <script>
+      Cufon.replace('h1,h2,h3,h4,h5,h6,#header .nav a, #header .title,.hero-content p', {hover: true})
+  </script>
 </body>
 </html>

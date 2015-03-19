@@ -1,2 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "compass";
+
+@import "colors";
+@import "variables";
+@import "typo";
+
+@import "header";
+@import "footer";
+
+@import "screen";
+
+@import "static_pages/home";
+@import "static_pages/location";
+@import "static_pages/projects";
+
+@import "members/sessions/new";
+
+@import "members/registrations/new";
+@import "members/registrations/edit";

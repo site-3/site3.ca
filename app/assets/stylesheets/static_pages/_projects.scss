@@ -1,0 +1,15 @@
+.static-pages-projects {
+  .project {
+    margin-bottom: 10pt;
+    padding-top: 1px;
+    margin-top: 10px;
+    clear: both;
+    min-height: 243px;
+
+    .project-image {
+      float: left;
+      margin-right: 10pt;
+      @extend .bordered-box;
+    }
+  }
+}

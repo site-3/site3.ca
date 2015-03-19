@@ -1,0 +1,102 @@
+#header {
+  $headerLinkColor: $headerFooterTextColor;
+  $headerLinkHoverColor: #000;
+  $header-height: 70px;
+  $headerBackgroundSmallColor: #fff;
+
+  min-height: $header-height;
+  border: none;
+  width: 100%;
+  @include border-radius(0);
+  background: $headerBackgroundSmallColor;
+
+  .container {
+    z-index: 1;
+  }
+
+  .navbar-brand {
+    padding-top: 0;
+    padding-left: 90px;
+    position: relative;
+
+    .header-logo {
+      $image-width: 80px;
+      $image-height: 78px;
+      @include hide-text;
+      background: image-url('header-logo.png');
+      background-size: $image-width $image-height;
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: $image-width;
+      height: $image-height;
+    }
+
+    .title {
+      color: $brandColor;
+      font-size: 23pt;
+      padding-top: 10px;
+      line-height: 1;
+      text-wrap: nowarp;
+      display: inline-block;
+
+      &:hover {
+        color: $headerBrandLinkColor;
+      }
+    }
+
+    .tagline {
+      font-weight: 400;
+      display: block;
+      line-height: 1.3;
+      color: lighten($headerFooterTextColor, 25%);
+    }
+  }
+
+  .navbar-collapse {
+    border: none;
+  }
+
+  .nav {
+    a {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $headerLinkColor;
+
+      &:hover {
+        color: $headerLinkHoverColor;
+        background: transparent;
+      }
+    }
+
+    .nav > li:first-child > a {
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    .navbar-collapse {
+      .nav {
+        padding-top: 1em;
+      }
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    background: $headerBackgroundColor;
+
+    .nav {
+      a {
+        line-height: $header-height;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  @media (min-width: 1170px) {
+    .nav > li:last-child > a {
+      padding-right: 0;
+    }
+  }
+}

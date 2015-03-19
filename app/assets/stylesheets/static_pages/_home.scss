@@ -1,0 +1,39 @@
+.static-pages-home {
+  .hero-content {
+    color: #fff;
+    opacity: .85;
+    font-size: 32pt;
+    margin: 0 auto;
+
+    p {
+      line-height: 1.1;
+
+      &:first-child {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    #header {
+      margin-bottom: 0;
+    }
+
+    #main {
+      background: #aaa;
+      background-image: image-url('bg.jpg');
+      background-size: cover;
+    }
+
+    .hero-content {
+      font-size: 16pt;
+      padding: 15px;
+    }
+  }
+
+  @media (min-width: $screen-xs-min) {
+    .hero-content {
+      max-width: 20em;
+    }
+  }
+}
