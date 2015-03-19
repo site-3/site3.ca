@@ -27,3 +27,6 @@ en:
     twitter: https://twitter.com/site3colab
     facebook: https://facebook.com/site3colab
     eventbrite: http://site3.eventbrite.ca
+    google_maps_location: "https://www.google.com/maps/place/Site+3+coLaboratory/@43.661317,-79.426126,17z/data=!3m1!4b1!4m2!3m1!1s0x882b345ff68d8205:0x8bc1d1d186af2ad0"
+  address:
+    full: "718R Ossignton Ave, Toronto, ON M6G 2T7"
