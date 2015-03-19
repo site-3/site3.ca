@@ -75,6 +75,15 @@
   }
 
   @media (max-width: $screen-sm-max) {
+    .navbar-brand {
+      .title {
+        font-size: 18px;
+      }
+      .tagline {
+        font-size: .8em;
+      }
+    }
+
     .navbar-collapse {
       .nav {
         padding-top: 1em;
