@@ -9,6 +9,7 @@
   width: 100%;
   @include border-radius(0);
   background: $headerBackgroundSmallColor;
+  margin-bottom: 0;
 
   .container {
     z-index: 1;

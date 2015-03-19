@@ -35,6 +35,7 @@ a:focus, .btn:focus {
 .content {
   max-width: 900px;
   margin: 0 auto;
+  margin-top: 20px;
 
   p:last-child {
     margin-bottom: 0;
@@ -54,6 +55,10 @@ a:focus, .btn:focus {
   }
 }
 
+#footer {
+  margin-top: $margin-header-footer;
+}
+
 @media (min-width: $screen-xs-min) {
   body.static-pages {
     background-image: image-url('bg.jpg');
@@ -63,15 +68,15 @@ a:focus, .btn:focus {
   .content {
     background: $headerBackgroundColor;
     padding: 30px 40px;
+    margin: $margin-header-footer auto 0;
     @include border-radius(3px);
-    margin-top: 40px;
   }
 }
 
 @media (min-width: $screen-md-min) {
   #pre-footer {
     min-height: 100vh;
-    padding-bottom: $footerHeight + $footerMarginTop;
+    padding-bottom: $footerHeight + $margin-header-footer;
   }
 
   #footer {
