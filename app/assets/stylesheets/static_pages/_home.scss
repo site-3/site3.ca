@@ -1,9 +1,12 @@
 .static-pages-home {
+  background-image: none;
+
   .hero-content {
     color: #fff;
     opacity: .85;
     font-size: 32pt;
     margin: 0 auto;
+    padding-top: $margin-header-footer;
 
     p {
       line-height: 1.1;
@@ -17,6 +20,10 @@
   @media (max-width: $screen-xs-max) {
     #header {
       margin-bottom: 0;
+    }
+
+    #footer {
+      margin-top: 0;
     }
 
     #main {

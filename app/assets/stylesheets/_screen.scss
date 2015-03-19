@@ -55,8 +55,10 @@ a:focus, .btn:focus {
   }
 }
 
-#footer {
-  margin-top: $margin-header-footer;
+@media (max-width: $screen-xs-max) {
+  #footer {
+    margin-top: $margin-header-footer;
+  }
 }
 
 @media (min-width: $screen-xs-min) {

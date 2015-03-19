@@ -42,3 +42,7 @@
       = mail_to t("email")
       %a.social-icon.social-icon-twitter{href: t("urls.twitter"), target: "_blank"} Twitter
       %a.social-icon.social-icon-facebook{href: t("urls.facebook"), target: "_blank"} Facebook
+
+    .footer-copyright
+      = link_to "Settings", edit_member_registration_path
+      &copy; #{ Date.today.year } Site 3 coLaboratory
