@@ -10,19 +10,6 @@ strong {
   font-weight: bold;
 }
 
-@mixin bordered-box {
-  border: 5px solid $borderColor;
-  @include border-radius(3px);
-}
-
-.bordered-box {
-  @include bordered-box
-}
-
-.bordered-box-hover {
-  border-color: rgba($brightBrandColor, .4);
-}
-
 p {
   margin-bottom: 1em;
 }
@@ -90,11 +77,6 @@ a:focus, .btn:focus {
   #footer {
     height: $footerHeight;
     margin-top: -$footerHeight;
-
-    #promo-section {
-      @include bordered-box;
-      width: 100%;
-    }
   }
 
   #background-mask {

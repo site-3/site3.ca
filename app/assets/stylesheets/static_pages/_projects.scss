@@ -9,7 +9,7 @@
     .project-image {
       float: left;
       margin-right: 10pt;
-      @extend .bordered-box;
+      @include bordered-box;
     }
   }
 }

@@ -64,18 +64,16 @@
   #promo-section {
     display: block;
     height: 140px;
-    background-color: $footerBoxBackground;
+    background-color: #000;
     background-image: image-url('promo-halloween-party-2014.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right center;
-
     color: $textColor;
+    @include bordered-box;
 
     &:hover {
       text-decoration: none;
-
-      @extend .bordered-box-hover;
     }
 
     .promo-content {
@@ -100,7 +98,7 @@
 
     #footer-map-holder {
       background: $footerBoxBackground;
-      @extend .bordered-box;
+      @include bordered-box;
       float: right;
       height: 140px;
       width: 100%;
