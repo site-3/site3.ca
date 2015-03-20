@@ -34,6 +34,8 @@ gem 'unicorn'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+gem 'paper_trail'
+
 group :development, :test do
   gem 'sqlite3'
 
