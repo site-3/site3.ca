@@ -42,6 +42,22 @@ a:focus, .btn:focus {
   }
 }
 
+.button_to {
+  display: inline;
+  input {
+    border: none;
+    background: none;
+    display: inline;
+    padding: 0;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 .btn {
   border: 3px solid $linkColor;
   font-weight: bold;
