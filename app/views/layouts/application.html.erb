@@ -4,8 +4,8 @@
   <title><%= yield(:title) %></title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=googleMapsLoad" async></script>
   <%= csrf_meta_tags %>
 </head>

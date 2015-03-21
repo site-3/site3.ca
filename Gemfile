@@ -14,16 +14,8 @@ gem 'coffee-rails', '~> 4.1.0' # Use CoffeeScript for .coffee assets and views
 gem 'therubyracer', platforms: :ruby
 
 gem 'haml'
-
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
-
-gem 'devise' # handles registration, sessions and more
-gem 'bcrypt', '~> 3.1.7'
+gem 'devise' # Handles registration, sessions and more
 gem 'paper_trail' # Version everything!
-gem 'turbolinks'
-gem 'unicorn'
-gem 'jbuilder', '~> 2.0'
 
 # Make stripe payments for the vending machine
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
@@ -33,12 +25,6 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 
   # fake data!
   gem 'factory_girl_rails'
