@@ -20,6 +20,10 @@ gem 'paper_trail' # Version everything!
 # Make stripe payments for the vending machine
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+group :development do
+  gem 'letter_opener'
+end
+
 group :development, :test do
   gem 'sqlite3'
 
