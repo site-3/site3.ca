@@ -49,4 +49,4 @@
       - if member_signed_in?
         = button_to "Log out", destroy_member_session_path, method: :delete
       - else
-        = link_to "Log in", edit_member_registration_path
+        = link_to "Log in", new_member_session_path
