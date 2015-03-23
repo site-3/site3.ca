@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def user_for_paper_trail
     current_member
   end
+
+  def after_sign_in_path_for(member)
+    edit_member_registration_path
+  end
 end
