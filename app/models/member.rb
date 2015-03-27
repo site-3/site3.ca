@@ -9,4 +9,8 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true
+
+  def rfid=(rfid)
+    self[:rfid] = rfid.downcase
+  end
 end

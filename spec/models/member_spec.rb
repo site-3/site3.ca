@@ -10,4 +10,11 @@ RSpec.describe Member, type: :model do
       its(:valid?) { is_expected.to eq(false) }
     end
   end
+
+  describe ".rfid=" do
+    context "with non downcased rfid" do
+      subject { create(:member, rfid: "DEADBEEF") }
+      its(:rfid) { is_expected.to eq("deadbeef") }
+    end
+  end
 end
