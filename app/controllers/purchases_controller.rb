@@ -24,7 +24,7 @@ class PurchasesController < ApplicationController
     raise "No vending_machine_token secret"  if Rails.application.secrets.vending_machine_token.nil?
     raise "Incorrect token"  unless token == Rails.application.secrets.vending_machine_token
 
-    rfid = params[:rfid]
+    rfid = params[:rfid].downcase
     @member = Member.where(rfid: rfid, enable_vending_machine: true).first!
 
     # Amount in cents, we set this not the vending machine
