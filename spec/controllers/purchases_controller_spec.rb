@@ -47,6 +47,13 @@ RSpec.describe PurchasesController, type: :controller do
           end
         end
 
+        context "when using incorrect rfid capitialization" do
+          it "succeds" do
+            go!(member.rfid.upcase)
+            expect(response.body).to eq({status: 0}.to_json)
+          end
+        end
+
         context "with incorrect token" do
           let(:token) { "notavalidtoken" }
           it "fails" do
