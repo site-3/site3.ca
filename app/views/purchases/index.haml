@@ -4,3 +4,6 @@
       %tr
         %td= charge.description
         %td= Time.at(charge.created)
+
+  - if @charges.has_more
+    = link_to 'More purchases', purchases_path(last_purchase: @charges.data.last.id)

@@ -2,11 +2,16 @@ class PurchasesController < ApplicationController
   before_action :authenticate_member!, only: [:index]
   skip_before_filter :verify_authenticity_token, :only => [:create]
 
-  # TODO make sure that displaying e.message isn't a security risk
-
   def index
-    @charges = Stripe::Charge.all(customer: current_member.stripe_id)
+    @last_purchase = params[:last_purchase]
+
+    @charges = Stripe::Charge.all(
+      customer: current_member.stripe_id,
+      limit: charges_per_page,
+      starting_after: @last_purchase.presence
+    )
   rescue Exception => e
+    # TODO make sure that displaying e.message isn't a security risk
     flash[:alert] = e.message
   end
 
@@ -35,5 +40,10 @@ class PurchasesController < ApplicationController
     render json: {status: 0}
   rescue Exception => e
     render json: {status: 1}
+  end
+
+private
+  def charges_per_page
+    100
   end
 end
