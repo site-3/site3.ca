@@ -47,6 +47,8 @@
       &copy; #{ Date.today.year } Site 3 coLaboratory
       &middot;
       - if member_signed_in?
+        = link_to "Settings", edit_member_registration_path
+        &middot;
         = button_to "Log out", destroy_member_session_path, method: :delete
       - else
         = link_to "Log in", new_member_session_path
