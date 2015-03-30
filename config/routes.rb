@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
 
   resources :purchases
+  resources :member_applications, path: 'apply', only: [:new, :create]
 
   # Static pages
   get 'about' => 'static_pages#about'

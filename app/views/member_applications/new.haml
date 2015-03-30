@@ -1,0 +1,15 @@
+%h2 Apply for Membership
+
+= form_for(@member_application) do |f|
+  %p Interested in membership at Site 3? Filling out this form will speed up the process, you will still need to visit in person to meet us and pick up your keyfob.
+
+  .form-group{class: ('has-error' if @member_application.errors[:name].present?)}
+    = f.label :name, class: 'control-label'
+    = f.text_field :name, class: 'form-control'
+
+  .form-group{class: ('has-error' if @member_application.errors[:email].present?)}
+    = f.label :email, class: 'control-label'
+    = f.email_field :email, class: 'form-control'
+
+  .form-actions
+    = f.submit "Apply for Membership", class: 'btn btn-primary'
