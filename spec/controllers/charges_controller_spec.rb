@@ -1,6 +1,6 @@
 require 'stripe_mock'
 
-RSpec.describe PurchasesController, type: :controller do
+RSpec.describe ChargesController, type: :controller do
   describe "#create" do
     let!(:stripe_helper) { StripeMock.create_test_helper }
     before { StripeMock.start }

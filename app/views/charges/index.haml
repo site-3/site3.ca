@@ -1,0 +1,10 @@
+- if @charges
+  %table.table
+    - @charges.each do |charge|
+      %tr
+        %td= number_to_currency(charge.amount / 100.0)
+        %td= charge.description
+        %td= Time.at(charge.created).strftime("%B %-d, %Y %-l:%M%P")
+
+  - if @charges.has_more
+    = link_to 'More charges', charges_path(last_charge: @charges.data.last.id)
