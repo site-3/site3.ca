@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     sessions: 'members/sessions',
   }
 
-  resources :purchases
+  resources :charges
 
   # Static pages
   get 'about' => 'static_pages#about'

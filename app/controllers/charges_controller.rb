@@ -1,14 +1,14 @@
-class PurchasesController < ApplicationController
+class ChargesController < ApplicationController
   before_action :authenticate_member!, only: [:index]
   skip_before_filter :verify_authenticity_token, :only => [:create]
 
   def index
-    @last_purchase = params[:last_purchase]
+    @last_charge = params[:last_charge]
 
     @charges = Stripe::Charge.all(
       customer: current_member.stripe_id,
       limit: charges_per_page,
-      starting_after: @last_purchase.presence
+      starting_after: @last_charge.presence
     )
   rescue Exception => e
     # TODO make sure that displaying e.message isn't a security risk

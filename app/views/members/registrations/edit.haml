@@ -7,8 +7,8 @@
     .checkbox
       %label
         = f.check_box :enable_vending_machine
-        Allow your fob to make purchases from the vending machines
-    %p.help-block See all your #{ link_to 'purchases', purchases_path }.
+        Allow your fob to purchase items from the vending machines
+    %p.help-block See all your #{ link_to 'purchases', charges_path }.
 
   .form-group
     = f.label :email, class: 'control-label'

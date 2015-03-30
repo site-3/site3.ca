@@ -7,4 +7,4 @@
         %td= Time.at(charge.created).strftime("%B %-d, %Y %-l:%M%P")
 
   - if @charges.has_more
-    = link_to 'More purchases', purchases_path(last_purchase: @charges.data.last.id)
+    = link_to 'More charges', charges_path(last_charge: @charges.data.last.id)
