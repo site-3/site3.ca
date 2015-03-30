@@ -2,6 +2,7 @@
   %table.table
     - @charges.each do |charge|
       %tr
+        %td= number_to_currency(charge.amount / 100.0)
         %td= charge.description
         %td= Time.at(charge.created)
 
