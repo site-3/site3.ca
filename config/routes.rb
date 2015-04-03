@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     sessions: 'members/sessions',
   }
 
-  resources :purchases
+  resources :charges
   resources :member_applications, path: 'apply', only: [:new, :create]
 
   # Static pages
