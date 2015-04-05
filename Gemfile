@@ -15,6 +15,8 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'haml'
 gem 'devise' # Handles registration, sessions and more
+gem 'omniauth-facebook'
+
 gem 'paper_trail' # Version everything!
 
 # Make stripe payments for the vending machine
