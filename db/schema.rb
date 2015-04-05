@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330012318) do
+ActiveRecord::Schema.define(version: 20150405041334) do
 
   create_table "member_applications", force: :cascade do |t|
     t.text     "name",       null: false
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 20150330012318) do
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+
+  create_table "oauth_identities", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.string  "provider",  null: false
+    t.string  "uid",       null: false
+  end
+
+  add_index "oauth_identities", ["member_id", "provider"], name: "index_oauth_identities_on_member_id_and_provider", unique: true
+  add_index "oauth_identities", ["provider", "uid"], name: "index_oauth_identities_on_provider_and_uid", unique: true
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",  null: false
