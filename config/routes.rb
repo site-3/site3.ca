@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :members, controllers: {
     registrations: 'members/registrations',
     sessions: 'members/sessions',
+    omniauth_callbacks: 'members/omniauth_callbacks',
   }
 
   resources :charges

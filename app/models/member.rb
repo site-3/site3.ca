@@ -8,6 +8,8 @@ class Member < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  devise :omniauthable, :omniauth_providers => [:facebook]
+
   validates :name, presence: true
 
   def rfid=(rfid)
