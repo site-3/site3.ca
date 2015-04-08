@@ -18,7 +18,6 @@ RSpec.describe Members::RegistrationsController, type: :controller do
           email: "new-email@example.com",
           name: "Test person",
           enable_vending_machine: "1",
-          current_password: password,
         }
       }
     end
