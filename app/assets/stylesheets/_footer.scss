@@ -42,23 +42,10 @@
       margin: 0;
     }
 
-    .social-icon {
-      @include hide-text;
-      margin-left: 10px;
-      vertical-align: middle;
-      height: 20px;
-      width: 22px;
-      display: inline-block;
-      background-repeat: no-repeat;
-      background-size: contain;
-
-      &.social-icon-twitter {
-        background-image: image-url('twitter-logo.png');
-      }
-
-      &.social-icon-facebook {
-        background-image: image-url('facebook-logo.png');
-      }
+    .fa {
+      font-size: 22px;
+      color: $brandColor;
+      margin-left: .25em;
     }
   }
 

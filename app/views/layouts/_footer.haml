@@ -40,8 +40,12 @@
 
     .footer-contact
       = mail_to t("email")
-      %a.social-icon.social-icon-twitter{href: t("urls.twitter"), target: "_blank"} Twitter
-      %a.social-icon.social-icon-facebook{href: t("urls.facebook"), target: "_blank"} Facebook
+      %a{href: t("urls.twitter"), target: "_blank"}
+        = fa_icon "twitter"
+        %span.sr-only Twitter
+      %a{href: t("urls.facebook"), target: "_blank"}
+        = fa_icon "facebook-official"
+        %span.sr-only Facebook
 
     .footer-copyright
       &copy; #{ Date.today.year } Site 3 coLaboratory
