@@ -1,4 +1,5 @@
 #footer {
+  $footer-promo-section-height: 140px;
   font-size: 12pt;
   background: $headerBackgroundColor;
 
@@ -51,7 +52,7 @@
 
   #promo-section {
     display: block;
-    height: 140px;
+    height: $footer-promo-section-height;
     background-color: #000;
     background-image: image-url('promo-halloween-party-2014.jpg');
     background-repeat: no-repeat;
@@ -88,7 +89,7 @@
       background: $footerBoxBackground;
       @include bordered-box;
       float: right;
-      height: 140px;
+      height: $footer-promo-section-height;
       width: 100%;
     }
 
