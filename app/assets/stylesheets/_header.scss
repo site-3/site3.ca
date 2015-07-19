@@ -17,12 +17,12 @@
 
   .navbar-brand {
     padding-top: 0;
-    padding-left: 90px;
+    padding-left: 72px;
     position: relative;
 
     .header-logo {
-      $image-width: 80px;
-      $image-height: 78px;
+      $image-width: 64px;
+      $image-height: 77px;
       @include hide-text;
       background: image-url('header-logo.png');
       background-size: $image-width $image-height;
