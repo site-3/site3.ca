@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
 
   resources :charges
+  resources :cards, only: [:create]
   resources :member_applications, path: 'apply', only: [:new, :create]
 
   # Static pages
