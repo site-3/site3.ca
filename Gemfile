@@ -18,9 +18,6 @@ gem 'haml'
 gem 'devise' # Handles registration, sessions and more
 gem 'omniauth-facebook'
 
-gem 'better_errors'
-gem 'binding_of_caller'
-
 gem 'paper_trail' # Version everything!
 
 # Make stripe payments for the vending machine
@@ -28,6 +25,9 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development do
   gem 'letter_opener'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
