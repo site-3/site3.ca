@@ -8,7 +8,10 @@
       %label
         = f.check_box :enable_vending_machine
         Allow your fob to purchase items from the vending machines
-    %p.help-block See all your #{ link_to 'purchases', charges_path }.
+    - if resource.stripe_id.present?
+      %p.help-block See all your #{ link_to 'purchases', charges_path }.
+      %form#stripe-add-card-form{action: cards_path, method: :post}
+        %a#stripe-add-card{href: "#"} Update Credit Card
 
   .form-group
     = f.label :email, class: 'control-label'
@@ -33,3 +36,32 @@
     .row
       .col-sm-6.col-sm-offset-3
         = f.submit "Update Settings", class: 'btn btn-primary btn-block'
+
+<script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
+:javascript
+  var testtoken = null;
+  var handler = StripeCheckout.configure({
+    key: "#{Rails.application.secrets.stripe_publishable_key}",
+    email: "#{@member.email}",
+    name: "Site 3 coLaboratory",
+    label: "Add payment method",
+    currency: "cad",
+    "panel-label": "Add payment method",
+    token: function(stripe_response) {
+      // send the response to our server to be added to the user
+      $.post("/cards", stripe_response, function(data) {
+        console.log(data)
+      });
+    }
+  });
+
+  $('#stripe-add-card').on('click', function(e) {
+    // Open Checkout with further options
+    handler.open();
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function() {
+    handler.close();
+  });
