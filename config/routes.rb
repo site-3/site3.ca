@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :cards, only: [:create]
   resources :member_applications, path: 'apply', only: [:new, :create]
 
+  resources :doorbot_members, only: [:index]
+
   # Static pages
   get 'about' => 'static_pages#about'
   get 'membership' => 'static_pages#membership'

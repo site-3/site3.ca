@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0' # Use CoffeeScript for .coffee assets and views
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
+gem 'jbuilder'
+
 gem 'haml'
 gem 'devise' # Handles registration, sessions and more
 gem 'omniauth-facebook'
