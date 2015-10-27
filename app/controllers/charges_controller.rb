@@ -22,7 +22,7 @@ class ChargesController < ApplicationController
   def create
     token = params[:token]
     raise "No vending_machine_token secret"  if Rails.application.secrets.vending_machine_token.nil?
-    raise "Incorrect token"  unless token == Rails.application.secrets.vending_machine_token
+    raise "Incorrect token"  unless Devise.secure_compare(token, Rails.application.secrets.vending_machine_token)
 
     rfid = params[:rfid].downcase
     @member = Member.where(rfid: rfid, enable_vending_machine: true).first!
