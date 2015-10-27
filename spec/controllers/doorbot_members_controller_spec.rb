@@ -1,20 +1,34 @@
 RSpec.describe DoorbotMembersController, type: :controller do
+  let!(:member_doorbot_disabled) { FactoryGirl.create(:member, doorbot_enabled: false) }
+  let!(:member_doorbot_enabled) { FactoryGirl.create(:member, doorbot_enabled: true) }
+
   describe "#index" do
-    context "for an known user" do
-      let!(:member_doorbot_disabled) { FactoryGirl.create(:member, doorbot_enabled: false) }
-      let!(:member_doorbot_enabled) { FactoryGirl.create(:member, doorbot_enabled: true) }
+    def go!(token)
+      get :index, {token: token}
+    end
 
-      it "returns json" do
-        get :index
+    context "with correct token" do
+      let(:token) { Rails.application.secrets.doorbot_members_token }
 
-        expect(response.content_type).to eq('application/json')
+      context "for an known user" do
+        it "returns json" do
+          go!(token)
+          expect(response.content_type).to eq('application/json')
+        end
+
+        it "returns json" do
+          go!(token)
+          response_json = JSON.parse(response.body)
+          expect(response_json).to eq([member_doorbot_enabled.to_builder.target!])
+        end
       end
+    end
 
-      it "returns json" do
-        get :index
-        response_json = JSON.parse(response.body)
+    context "with an incorrect token" do
+      let(:token) { "incorrect_token" }
 
-        expect(response_json).to eq([member_doorbot_enabled.to_builder.target!])
+      it "does not return members" do
+        expect { go!(token) }.to raise_error
       end
     end
   end
