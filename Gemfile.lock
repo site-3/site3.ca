@@ -149,6 +149,9 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    jbuilder (2.2.13)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
     jimson-temp (0.9.5)
       blankslate (>= 3.1.2)
       multi_json (~> 1.0)
@@ -337,6 +340,7 @@ DEPENDENCIES
   font-awesome-rails
   guard-rspec
   haml
+  jbuilder
   jquery-rails
   letter_opener
   omniauth-facebook

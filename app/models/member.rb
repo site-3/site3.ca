@@ -26,4 +26,10 @@ class Member < ActiveRecord::Base
       user.image = auth.info.image # assuming the user model has an image
     end
   end
+
+  def to_builder
+    Jbuilder.new do |member|
+      member.(self, :email, :rfid)
+    end
+  end
 end
