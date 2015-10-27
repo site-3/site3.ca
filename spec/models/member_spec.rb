@@ -22,4 +22,16 @@ RSpec.describe Member, type: :model do
     subject { build(:member, rfid: "testrfid", email: "build@example.com") }
     its(:to_builder) { is_expected.to eq({rfid: "testrfid", email: "build@example.com"}) }
   end
+
+  context "scopes" do
+    describe "#doorbot_enabled" do
+      let!(:member_doorbot_disabled) { FactoryGirl.create(:member, doorbot_enabled: false) }
+      let!(:member_doorbot_enabled) { FactoryGirl.create(:member, doorbot_enabled: true) }
+
+      subject { described_class.doorbot_enabled }
+
+      it { is_expected.to include(member_doorbot_enabled) }
+      it { is_expected.not_to include(member_doorbot_disabled) }
+    end
+  end
 end

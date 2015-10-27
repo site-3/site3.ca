@@ -14,6 +14,8 @@ class Member < ActiveRecord::Base
 
   validates :name, presence: true
 
+  scope :doorbot_enabled, -> { where(doorbot_enabled: true) }
+
   def rfid=(rfid)
     self[:rfid] = rfid.downcase
   end
