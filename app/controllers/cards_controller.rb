@@ -5,8 +5,7 @@ class CardsController < ApplicationController
   def create
     card_token = params[:id]
 
-    customer = Stripe::Customer.retrieve(current_member.stripe_id)
-    customer.sources.create(source: card_token)
+    current_member.stripe_customer.sources.create(source: card_token)
   rescue Exception => e
     # This trusts that Stripe won't return any errors with sensitive data
     flash[:alert] = e.message

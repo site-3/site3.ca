@@ -45,4 +45,8 @@ class Member < ActiveRecord::Base
       member.(self, :email, :rfid)
     end
   end
+
+  def stripe_customer
+    Stripe::Customer.retrieve(stripe_id)
+  end
 end

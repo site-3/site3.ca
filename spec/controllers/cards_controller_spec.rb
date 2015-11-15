@@ -1,11 +1,9 @@
-require 'stripe_mock'
-
 RSpec.describe CardsController, type: :controller do
-  describe "#create" do
-    let!(:stripe_helper) { StripeMock.create_test_helper }
-    before { StripeMock.start }
-    after { StripeMock.stop }
+  let!(:stripe_helper) { StripeMock.create_test_helper }
+  before { StripeMock.start }
+  after { StripeMock.stop }
 
+  describe "#create" do
     def go!(token)
       post :create, {id: token}
     end
