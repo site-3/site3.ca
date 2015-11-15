@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027005414) do
+ActiveRecord::Schema.define(version: 20151114231020) do
 
   create_table "member_applications", force: :cascade do |t|
-    t.text     "name",       null: false
-    t.text     "email",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "name",                                   null: false
+    t.text     "email",                                  null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.text     "stripe_payment_token",   default: "",    null: false
+    t.text     "stripe_id",              default: "",    null: false
+    t.boolean  "enable_vending_machine", default: false, null: false
   end
 
   create_table "members", force: :cascade do |t|
