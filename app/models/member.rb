@@ -29,6 +29,21 @@ class Member < ActiveRecord::Base
     end
   end
 
+  def self.create_from_member_application(member_application)
+    create({
+      doorbot_enabled: true,
+      email: member_application.email,
+      name: member_application.name,
+      rfid: member_application.rfid,
+      stripe_id: member_application.stripe_id,
+      enable_vending_machine: member_application.enable_vending_machine,
+    })
+  end
+
+  def to_tsv_line
+    [name, email, "Associate", "9999", "12", stripe_id, rfid, notes].join("\t")
+  end
+
   def to_builder
     Jbuilder.new do |member|
       member.(self, :email, :rfid)
