@@ -1,0 +1,34 @@
+<p>The door code is <b><%= Rails.application.secrets.door_code %></b>. Unlock the deadbolt <i>before</i> scanning your fob, the fob only unlocks the handle for 5 seconds.</p>
+
+<p><b>Exit Procedure</b></p>
+
+<p>If you are the last one sure make sure that:</p>
+<ul>
+   <li>the door handle and deadbolt are locked</li>
+   <li>all lights are off</li>
+   <li>all windows are closed and locked</li>
+   <li>the thermostat is set to a reasonable temperature</li>
+</ul>
+
+<p><b>Safety</b></p>
+
+
+<p>If you hurt yourself or damage a tool you <b>MUST</b> email <%= mail_to t('email') %>! (Once you've dealt with any immediate issues.)</p>
+
+<p><b>Mailing List</b></p>
+
+<p>You will see a public "new member" email about you shortly, reply and tell us a bit more about yourself! Email <%= mail_to t('mailing_list') %> to ask questions about tools, project help, etc. If you have questions or concerns about the shop you can reach myself and some other helpful people at <%= mail_to t('email') %>.</p>
+
+<p><b>Events / Classes</b></p>
+
+<p>We have monthly shop cleanup day (SCUD) that is usually the last Saturday of the month. (By the way Site 3 has a <a href="<%= t('urls.google_calendar') %>">calendar</a> which you can add to iCal or Google Calendar using the button at the bottom right.)</p>
+
+<p>Class tickets for laser cutter and 3D printing and more are available on <a href="<%= t('urls.eventbrite') %>">Eventbrite</a>. You may also want to join the <a href="<%= t('urls.facebook_group') %>">Facebook Group</a> and like our <a href="<%= t('urls.facebook') %>">Facebook Page</a>.</p>
+
+<p><b>Facilities / Supplies</b></p>
+
+<p> Many of our tools are do not require training if you are already familiar with that tool (eg. wrenches, drills, hammers, etc.) Other tools like the laser cutter and CNC mill require specific training even if you have used similar tools in the past. If you are not sure then ask first. Make sure to put back everything you use back in the proper place and clean up after yourself.</p>
+
+<p>We have some consumable supplies, generally if you are working on a project you should bring what you need to complete it. Most consumables will have a recommended donation notice near them (eg. sewing needles for the machines, resistors near the electronics bench.) Unlabelled wood in storage can be purchased from the shop.</p>
+
+<p>Our Wifi network is "Site 3" and the password is "<%= Rails.application.secrets.wifi_password %>".</p>
