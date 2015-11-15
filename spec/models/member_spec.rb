@@ -42,7 +42,7 @@ RSpec.describe Member, type: :model do
     its(:to_builder) { is_expected.to eq({rfid: "testrfid", email: "build@example.com"}) }
   end
 
-  describe "stripe_customer" do
+  describe "#stripe_customer" do
     before { StripeMock.start }
     after { StripeMock.stop }
 
