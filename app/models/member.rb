@@ -40,6 +40,10 @@ class Member < ActiveRecord::Base
     })
   end
 
+  def to_tsv_line
+    [name, email, "Associate", "9999", "12", stripe_id, rfid, notes].join("\t")
+  end
+
   def to_builder
     Jbuilder.new do |member|
       member.(self, :email, :rfid)
