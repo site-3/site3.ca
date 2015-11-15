@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114231020) do
+ActiveRecord::Schema.define(version: 20151115034905) do
 
   create_table "member_applications", force: :cascade do |t|
     t.text     "name",                                   null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151114231020) do
     t.text     "stripe_payment_token",   default: "",    null: false
     t.text     "stripe_id",              default: "",    null: false
     t.boolean  "enable_vending_machine", default: false, null: false
+    t.text     "rfid"
   end
 
   create_table "members", force: :cascade do |t|

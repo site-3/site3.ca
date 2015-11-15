@@ -31,6 +31,7 @@ RSpec.describe MemberApplicationsController, type: :controller do
             email: member_application.email,
             stripe_payment_token: stripe_payment_token,
             enable_vending_machine: true,
+            rfid: 'deadbeef',
           }
         }
       end
