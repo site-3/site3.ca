@@ -346,6 +346,7 @@ DEPENDENCIES
   omniauth-facebook
   paper_trail
   pg
+  pry
   rails (= 4.2.1.rc4)
   rails_12factor
   rspec-its
