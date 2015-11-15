@@ -18,6 +18,20 @@ RSpec.describe Member, type: :model do
     end
   end
 
+  describe "#create_from_member_application" do
+    let!(:member_application) { FactoryGirl.create(:member_application, name: "Test Person", email: "test@example.com", rfid: "deadbeef", stripe_id: "tok_1", enable_vending_machine: true)}
+
+    it "creates a Member" do
+      member = described_class.create_from_member_application(member_application)
+      expect(member.name).to eq("Test Person")
+      expect(member.email).to eq("test@example.com")
+      expect(member.rfid).to eq("deadbeef")
+      expect(member.stripe_id).to eq("tok_1")
+      expect(member.enable_vending_machine).to eq(true)
+      expect(member.doorbot_enabled).to eq(true)
+    end
+  end
+
   describe ".to_builder" do
     subject { build(:member, rfid: "testrfid", email: "build@example.com") }
     its(:to_builder) { is_expected.to eq({rfid: "testrfid", email: "build@example.com"}) }
