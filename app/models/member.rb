@@ -40,8 +40,8 @@ class Member < ActiveRecord::Base
     })
   end
 
-  def to_tsv_line
-    [name, email, "Associate", "9999", "12", stripe_id, rfid, notes].join("\t")
+  def to_csv_line
+    [name, email, "Associate", "9999/12/1", stripe_id, rfid, notes].join(",")
   end
 
   def to_builder
