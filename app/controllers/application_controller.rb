@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     current_member
   end
 
+  def verify_admin_member
+    raise ActionController::RoutingError.new('Not Found')  unless current_member&.admin?
+  end
+
   def after_sign_in_path_for(member)
     edit_member_registration_path
   end

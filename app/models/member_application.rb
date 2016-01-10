@@ -10,4 +10,8 @@ class MemberApplication < ActiveRecord::Base
 
   validates :name, presence: true
   validates :email, presence: true # TODO validate format
+
+  def approved?
+    member.present?
+  end
 end
