@@ -1,0 +1,28 @@
+%h2 Membership Applications
+
+- if @member_applications
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th RFID
+        %th Stripe?
+        %th
+    %tbody
+      - @member_applications.each do |member_application|
+        %tr
+          %td= member_application.name
+          %td= member_application.email
+          %td= member_application.rfid
+          %td
+            - if member_application.stripe_id.present?
+              = link_to "Yes", "https://dashboard.stripe.com/customers/#{member_application.stripe_id}"
+            - else
+              No
+          %td
+            - if member_application.approved?
+              Approved
+            - else
+              = form_for(member_application, url: admin_member_application_approve_path(member_application), html: { method: :post }) do |f|
+                = f.submit "Approve", class: 'btn btn-primary'

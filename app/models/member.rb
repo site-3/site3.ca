@@ -11,13 +11,14 @@ class Member < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :oauth_identities
+  has_one :member_application
 
   validates :name, presence: true
 
   scope :doorbot_enabled, -> { where(doorbot_enabled: true) }
 
   def rfid=(rfid)
-    self[:rfid] = rfid.downcase
+    self[:rfid] = rfid&.downcase
   end
 
   def self.from_omniauth_identity(auth)
@@ -37,11 +38,12 @@ class Member < ActiveRecord::Base
       rfid: member_application.rfid,
       stripe_id: member_application.stripe_id,
       enable_vending_machine: member_application.enable_vending_machine,
+      password: Devise.friendly_token[0,20],
     })
   end
 
-  def to_tsv_line
-    [name, email, "Associate", "9999", "12", stripe_id, rfid, notes].join("\t")
+  def to_csv_line
+    [name, email, "Associate", "9999/12/1", stripe_id, rfid, notes].join(",")
   end
 
   def to_builder

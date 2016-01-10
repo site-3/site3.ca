@@ -7,7 +7,14 @@ Rails.application.routes.draw do
 
   resources :charges
   resources :cards, only: [:create]
+
   resources :member_applications, path: 'apply', only: [:new, :create]
+
+  namespace :admin do
+    resources :member_applications, path: 'member-applications', only: [:index] do
+      post 'approve'
+    end
+  end
 
   resources :doorbot_members, only: [:index]
 

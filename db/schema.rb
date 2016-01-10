@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115034905) do
+ActiveRecord::Schema.define(version: 20160110040723) do
 
   create_table "member_applications", force: :cascade do |t|
     t.text     "name",                                   null: false
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(version: 20151115034905) do
     t.text     "stripe_id",              default: "",    null: false
     t.boolean  "enable_vending_machine", default: false, null: false
     t.text     "rfid"
+    t.integer  "member_id"
   end
+
+  add_index "member_applications", ["member_id"], name: "index_member_applications_on_member_id", unique: true
 
   create_table "members", force: :cascade do |t|
     t.text     "name",                                   null: false
@@ -43,6 +46,7 @@ ActiveRecord::Schema.define(version: 20151115034905) do
     t.string   "last_sign_in_ip"
     t.boolean  "enable_vending_machine", default: false, null: false
     t.boolean  "doorbot_enabled",        default: false, null: false
+    t.boolean  "admin",                  default: false, null: false
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true

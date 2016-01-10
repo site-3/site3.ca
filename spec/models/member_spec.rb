@@ -19,22 +19,46 @@ RSpec.describe Member, type: :model do
   end
 
   describe "#create_from_member_application" do
-    let!(:member_application) { FactoryGirl.create(:member_application, name: "Test Person", email: "test@example.com", rfid: "deadbeef", stripe_id: "tok_1", enable_vending_machine: true)}
+    subject { described_class.create_from_member_application(member_application) }
 
-    it "creates a Member" do
-      member = described_class.create_from_member_application(member_application)
-      expect(member.name).to eq("Test Person")
-      expect(member.email).to eq("test@example.com")
-      expect(member.rfid).to eq("deadbeef")
-      expect(member.stripe_id).to eq("tok_1")
-      expect(member.enable_vending_machine).to eq(true)
-      expect(member.doorbot_enabled).to eq(true)
+    context "with only required attributes" do
+      let!(:member_application) { FactoryGirl.create(:member_application,
+                                                     name: "Test Person", email: "test@example.com",
+                                                     stripe_id: "tok_1", rfid: nil)}
+
+      it "creates a Member" do
+        expect(subject.name).to eq("Test Person")
+        expect(subject.email).to eq("test@example.com")
+        expect(subject.stripe_id).to eq("tok_1")
+        expect(subject.rfid).to eq(nil)
+        expect(subject.enable_vending_machine).to eq(false)
+        expect(subject.doorbot_enabled).to eq(true)
+        expect(subject.password).to be_present
+        expect(subject.valid?).to eq(true)
+      end
+    end
+
+    context "with all attributes" do
+      let!(:member_application) { FactoryGirl.create(:member_application,
+                                                     name: "Test Person", email: "test@example.com",
+                                                     stripe_id: "tok_1", enable_vending_machine: true, rfid: "deadbeef")}
+
+      it "creates a Member" do
+        expect(subject.name).to eq("Test Person")
+        expect(subject.email).to eq("test@example.com")
+        expect(subject.stripe_id).to eq("tok_1")
+        expect(subject.rfid).to eq("deadbeef")
+        expect(subject.enable_vending_machine).to eq(true)
+        expect(subject.doorbot_enabled).to eq(true)
+        expect(subject.password).to be_present
+        expect(subject.valid?).to eq(true)
+      end
     end
   end
 
-  describe "#to_tsv_line" do
+  describe "#to_csv_line" do
     subject { build(:member, rfid: "testrfid", email: "build@example.com", notes: "Grouped with Other Person") }
-    its(:to_tsv_line) { is_expected.to eq("#{subject.name}\t#{subject.email}\tAssociate\t9999\t12\t#{subject.stripe_id}\t#{subject.rfid}\tGrouped with Other Person") }
+    its(:to_csv_line) { is_expected.to eq("#{subject.name},#{subject.email},Associate,9999/12/1,#{subject.stripe_id},#{subject.rfid},Grouped with Other Person") }
   end
 
   describe "#to_builder" do
