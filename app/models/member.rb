@@ -11,6 +11,7 @@ class Member < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :oauth_identities
+  has_one :member_application
 
   validates :name, presence: true
 
