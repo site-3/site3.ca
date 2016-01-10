@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110003405) do
+ActiveRecord::Schema.define(version: 20160110040723) do
 
   create_table "member_applications", force: :cascade do |t|
     t.text     "name",                                   null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160110003405) do
     t.string   "last_sign_in_ip"
     t.boolean  "enable_vending_machine", default: false, null: false
     t.boolean  "doorbot_enabled",        default: false, null: false
+    t.boolean  "admin",                  default: false, null: false
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true
