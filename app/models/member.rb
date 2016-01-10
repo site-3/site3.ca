@@ -17,7 +17,7 @@ class Member < ActiveRecord::Base
   scope :doorbot_enabled, -> { where(doorbot_enabled: true) }
 
   def rfid=(rfid)
-    self[:rfid] = rfid.downcase
+    self[:rfid] = rfid&.downcase
   end
 
   def self.from_omniauth_identity(auth)
@@ -37,6 +37,7 @@ class Member < ActiveRecord::Base
       rfid: member_application.rfid,
       stripe_id: member_application.stripe_id,
       enable_vending_machine: member_application.enable_vending_machine,
+      password: Devise.friendly_token[0,20],
     })
   end
 
