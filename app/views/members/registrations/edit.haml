@@ -10,8 +10,7 @@
         Allow your fob to purchase items from the vending machines
     - if resource.stripe_id.present?
       %p.help-block See all your #{ link_to 'purchases', charges_path }.
-      %form#stripe-add-card-form{action: cards_path, method: :post}
-        %a#stripe-add-card{href: "#"} Update Credit Card
+      %a#stripe-add-card{href: "#"} Update Credit Card
 
   .form-group
     = f.label :email, class: 'control-label'
