@@ -31,6 +31,11 @@ class Member < ActiveRecord::Base
   end
 
   def self.create_from_member_application(member_application)
+    if member_application.create_stripe_customer?
+      member_application.create_stripe_customer
+      save!
+    end
+
     create({
       doorbot_enabled: true,
       email: member_application.email,

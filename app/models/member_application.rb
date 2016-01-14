@@ -14,4 +14,18 @@ class MemberApplication < ActiveRecord::Base
   def approved?
     member.present?
   end
+
+  def create_stripe_customer?
+    stripe_id.nil? && stripe_payment_token.present?
+  end
+
+  def create_stripe_customer
+    stripe_customer = Stripe::Customer.create(
+      email: email,
+      description: name,
+      source: stripe_payment_token,
+    )
+
+    stripe_id = stripe_customer.id
+  end
 end
