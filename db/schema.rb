@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110040723) do
+ActiveRecord::Schema.define(version: 20160114010225) do
 
   create_table "member_applications", force: :cascade do |t|
     t.text     "name",                                   null: false
     t.text     "email",                                  null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.text     "stripe_payment_token",   default: "",    null: false
-    t.text     "stripe_id",              default: "",    null: false
+    t.string   "stripe_payment_token"
+    t.string   "stripe_id"
     t.boolean  "enable_vending_machine", default: false, null: false
     t.text     "rfid"
     t.integer  "member_id"
