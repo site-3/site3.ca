@@ -23,13 +23,13 @@ RSpec.describe MemberApplicationsController, type: :controller do
 
     context "with all required params" do
       let(:stripe_payment_token) { nil }
-      let(:member_application) { FactoryGirl.build(:member_application) }
+      let(:member_application) { FactoryGirl.build(:member_application, stripe_payment_token: stripe_payment_token) }
       let(:member_application_params) do
         {
           member_application: {
             name: member_application.name,
             email: member_application.email,
-            stripe_payment_token: stripe_payment_token,
+            stripe_payment_token: member_application.stripe_payment_token,
             enable_vending_machine: true,
             rfid: 'deadbeef',
           }
@@ -47,7 +47,7 @@ RSpec.describe MemberApplicationsController, type: :controller do
           expect(Stripe::Customer).to receive(:create).with({
             email: member_application.email,
             description: member_application.name,
-            source: stripe_payment_token,
+            source: member_application.stripe_payment_token,
           }).and_call_original
 
           go!(member_application_params)
