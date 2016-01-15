@@ -26,6 +26,6 @@ class MemberApplication < ActiveRecord::Base
       source: stripe_payment_token,
     )
 
-    stripe_id = stripe_customer.id
+    self.stripe_id = stripe_customer.id
   end
 end
