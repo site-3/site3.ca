@@ -18,7 +18,7 @@ class Admin::MemberApplicationsController < ApplicationController
     end
 
     if params[:welcome_email].present?
-      MemberMailer.welcome_email(@member).deliver_now
+      MemberMailer.welcome_email(@member)
     end
 
     redirect_to admin_member_applications_path(approved_member: @member.id)

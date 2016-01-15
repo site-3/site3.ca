@@ -28,19 +28,33 @@ RSpec.describe Admin::MemberApplicationsController, type: :controller do
   end
 
   describe "#approve" do
-    def go!(member_application)
-      post :approve, {member_application_id: member_application.id}
+    def go!(params)
+      post :approve, params
+    end
+
+    let(:params) do
+      {
+        member_application_id: member_application.id
+      }
     end
 
     it "creates a Member" do
-      expect{ go!(member_application) }.to change(Member, :count).by(1)
+      expect{ go!(params) }.to change(Member, :count).by(1)
     end
 
     it "updates the MemberApplication.member" do
-      go!(member_application)
+      go!(params)
 
       member_application.reload
       expect(member_application.member).to eq(Member.last)
+    end
+
+    context "with param[:welcome_email] = true" do
+      it "Sends an email" do
+        expect(MemberMailer).to receive(:welcome_email)
+
+        go!(params.merge({welcome_email: true}))
+      end
     end
 
     context "with a non admin member" do
