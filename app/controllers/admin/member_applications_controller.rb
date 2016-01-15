@@ -2,9 +2,12 @@ class Admin::MemberApplicationsController < ApplicationController
   before_action :verify_admin_member
 
   def index
-    if params[:approved_member].present?
-      @member = Member.find(params[:approved_member])
+    @member = if params[:approved_member].present?
+      Member.find(params[:approved_member])
+    else
+      nil
     end
+
     @member_applications = MemberApplication.all
   end
 
