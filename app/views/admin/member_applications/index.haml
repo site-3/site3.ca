@@ -1,5 +1,17 @@
 %h2 Membership Applications
 
+- if @member
+  .alert.alert-info
+    %p <strong>#{ @member.name}</strong> isn't a member yet!
+    %ol
+      %li
+        Add the following line to #{ link_to "doorbot file", Rails.application.secrets.github_membership_file_url, target: :blank }:
+        %code= @member.to_csv_line
+      %li
+        If they are paying by Stripe make sure to set up an appropriate subscription #{ @member.stripe_customer }
+      %li
+        Show them how to use the door downstairs (and make sure they got the welcome email)
+
 - if @member_applications
   %table.table
     %thead
@@ -18,11 +30,16 @@
           %td
             - if member_application.stripe_id.present?
               = link_to "Yes", "https://dashboard.stripe.com/customers/#{member_application.stripe_id}"
+            - if member_application.stripe_payment_token
+              Has payment token
             - else
               No
           %td
             - if member_application.approved?
-              Approved
+              = link_to "Approval instructions", admin_member_applications_path(approved_member: member_application.member)
             - else
-              = form_for(member_application, url: admin_member_application_approve_path(member_application), html: { method: :post }) do |f|
+              = form_for(member_application, url: admin_member_application_approve_path(member_application), html: { method: :post, class: "form-inline"}) do |f|
                 = f.submit "Approve", class: 'btn btn-primary'
+                %label.checkbox.inline
+                  %input{type: :checkbox, checked: :checked, name: :welcome_email}
+                  Send welcome email

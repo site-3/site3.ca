@@ -2,6 +2,12 @@ class Admin::MemberApplicationsController < ApplicationController
   before_action :verify_admin_member
 
   def index
+    @member = if params[:approved_member].present?
+      Member.find(params[:approved_member])
+    else
+      nil
+    end
+
     @member_applications = MemberApplication.all
   end
 
@@ -14,6 +20,10 @@ class Admin::MemberApplicationsController < ApplicationController
       @member_application.update!(member: @member)
     end
 
-    redirect_to admin_member_applications_path
+    if params[:welcome_email].present?
+      MemberMailer.welcome_email(@member)
+    end
+
+    redirect_to admin_member_applications_path(approved_member: @member.id)
   end
 end

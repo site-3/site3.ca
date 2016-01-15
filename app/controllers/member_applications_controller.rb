@@ -8,14 +8,8 @@ class MemberApplicationsController < ApplicationController
   def create
     @member_application = MemberApplication.new(member_application_params)
 
-    if @member_application.valid?
-      @stripe_customer = Stripe::Customer.create(
-        email: @member_application.email,
-        description: @member_application.name,
-        source: @member_application.stripe_payment_token,
-      )
-
-      @member_application.stripe_id = @stripe_customer.id
+    if @member_application.create_stripe_customer?
+      @member_application.create_stripe_customer
     end
 
     respond_to do |format|
