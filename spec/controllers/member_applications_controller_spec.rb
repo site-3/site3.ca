@@ -22,7 +22,7 @@ RSpec.describe MemberApplicationsController, type: :controller do
     end
 
     context "with all required params" do
-      let(:stripe_payment_token) { stripe_helper.generate_card_token }
+      let(:stripe_payment_token) { nil }
       let(:member_application) { FactoryGirl.build(:member_application) }
       let(:member_application_params) do
         {
@@ -40,16 +40,20 @@ RSpec.describe MemberApplicationsController, type: :controller do
         expect{ go!(member_application_params) }.to change(MemberApplication, :count).by(1)
       end
 
-      it "creates a Stripe::Customer" do
-        expect(Stripe::Customer).to receive(:create).with({
-          email: member_application.email,
-          description: member_application.name,
-          source: stripe_payment_token,
-        }).and_call_original
+      context "with a stripe_payment_token" do
+        let(:stripe_payment_token) { stripe_helper.generate_card_token }
 
-        go!(member_application_params)
+        it "creates a Stripe::Customer" do
+          expect(Stripe::Customer).to receive(:create).with({
+            email: member_application.email,
+            description: member_application.name,
+            source: stripe_payment_token,
+          }).and_call_original
 
-        expect(MemberApplication.last.stripe_id).to be_present
+          go!(member_application_params)
+
+          expect(MemberApplication.last.stripe_id).to be_present
+        end
       end
 
       it "redirects to root_path" do
