@@ -16,6 +16,13 @@ RSpec.describe Member, type: :model do
       subject { create(:member, rfid: "DEADBEEF") }
       its(:rfid) { is_expected.to eq("deadbeef") }
     end
+
+    context "with non downcased rfid" do
+      let!(:existing_member) { create(:member, rfid: "DEADBEEF") }
+
+      subject { build(:member, rfid: "deadbeef") }
+      its(:valid?) { is_expected.to eq(false) }
+    end
   end
 
   describe "#create_from_member_application" do
