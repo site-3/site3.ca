@@ -14,6 +14,7 @@ class Member < ActiveRecord::Base
   has_one :member_application
 
   validates :name, presence: true
+  validates :rfid, uniqueness: true
 
   scope :doorbot_enabled, -> { where(doorbot_enabled: true) }
 
