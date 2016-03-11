@@ -39,6 +39,8 @@ class ChargesController < ApplicationController
 
     render json: {status: 0}
   rescue Exception => e
+    Rails.logger.error(e)
+    Rails.logger.error(e.backtrace)
     render json: {status: 1}
   end
 
