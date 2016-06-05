@@ -10,8 +10,8 @@ class ChargesController < ApplicationController
       limit: charges_per_page,
       starting_after: @last_charge.presence
     )
-  rescue Exception => e
-    # TODO make sure that displaying e.message isn't a security risk
+  rescue StripeError => e
+    # This trusts that Stripe won't return any errors with sensitive data
     flash[:alert] = e.message
   end
 
@@ -38,7 +38,7 @@ class ChargesController < ApplicationController
     )
 
     render json: {status: 0}
-  rescue Exception => e
+  rescue StandardError => e
     render json: {status: 1}
   end
 
