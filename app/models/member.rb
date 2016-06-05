@@ -8,7 +8,7 @@ class Member < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  devise :omniauthable, :omniauth_providers => [:facebook]
+  devise :omniauthable, omniauth_providers: [:facebook]
 
   has_many :oauth_identities
   has_one :member_application

@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   before_action :authenticate_member!, only: [:index]
-  skip_before_filter :verify_authenticity_token, :only => [:create]
+  skip_before_filter :verify_authenticity_token, only: [:create]
 
   def index
     @last_charge = params[:last_charge]
@@ -31,10 +31,10 @@ class ChargesController < ApplicationController
     @price = 500
 
     Stripe::Charge.create(
-      :customer    => @member.stripe_id,
-      :amount      => @price,
-      :description => 'Vending machine refreshment',
-      :currency    => 'cad'
+      customer: @member.stripe_id,
+      amount: @price,
+      description: 'Vending machine refreshment',
+      currency: 'cad'
     )
 
     render json: {status: 0}
