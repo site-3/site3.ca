@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   before_action :authenticate_member!, only: [:index]
-  skip_before_filter :verify_authenticity_token, :only => [:create]
+  skip_before_filter :verify_authenticity_token, only: [:create]
 
   def index
     @last_charge = params[:last_charge]
@@ -10,8 +10,8 @@ class ChargesController < ApplicationController
       limit: charges_per_page,
       starting_after: @last_charge.presence
     )
-  rescue Exception => e
-    # TODO make sure that displaying e.message isn't a security risk
+  rescue StripeError => e
+    # This trusts that Stripe won't return any errors with sensitive data
     flash[:alert] = e.message
   end
 
@@ -31,14 +31,14 @@ class ChargesController < ApplicationController
     @price = 500
 
     Stripe::Charge.create(
-      :customer    => @member.stripe_id,
-      :amount      => @price,
-      :description => 'Vending machine refreshment',
-      :currency    => 'cad'
+      customer: @member.stripe_id,
+      amount: @price,
+      description: 'Vending machine refreshment',
+      currency: 'cad'
     )
 
     render json: {status: 0}
-  rescue Exception => e
+  rescue StandardError => e
     Rails.logger.error(e)
     Rails.logger.error(e.backtrace)
     render json: {status: 1}
