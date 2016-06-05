@@ -1,0 +1,58 @@
+# This is the configuration used to check the rubocop source code.
+AllCops:
+  DisabledByDefault: true
+
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+  TargetRubyVersion: 2.3
+
+Style/TrailingBlankLines:
+  EnforcedStyle: final_newline
+
+Style/VariableName:
+  EnforcedStyle: snake_case
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+
+Style/TrailingCommaInLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array or
+  # hash, but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty array and hash literals.
+  EnforcedStyleForMultiline: comma
+
+Style/AndOr:
+  # Whether `and` and `or` are banned only in conditionals (conditionals)
+  # or completely (always).
+  EnforcedStyle: conditionals
+
+# Align with the style guide.
+Style/CollectionMethods:
+  # Mapping from undesired method to desired_method
+  # e.g. to use `detect` over `find`:
+  #
+  # CollectionMethods:
+  #   PreferredMethods:
+  #     find: detect
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+    detect: 'find'
+    find_all: 'select'
+
+# Checks use of `for` or each in multiline loops.
+Style/For:
+  EnforcedStyle: each
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+
+Lint/RescueException:
+  Enabled: true
