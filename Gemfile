@@ -23,7 +23,7 @@ gem 'omniauth-facebook'
 gem 'paper_trail' # Version everything!
 
 # Make stripe payments for the vending machine
-gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
+gem 'stripe', '<= 1.43'
 
 group :development, :test do
   gem 'sqlite3'
@@ -51,7 +51,7 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'stripe-ruby-mock', '~> 2.1.0', require: 'stripe_mock'
+  gem 'stripe-ruby-mock', '~> 2.3.0', require: 'stripe_mock'
   gem 'rspec_junit_formatter', git: 'git@github.com:circleci/rspec_junit_formatter.git'
 end
 
