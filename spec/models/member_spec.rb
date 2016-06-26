@@ -79,7 +79,7 @@ RSpec.describe Member, type: :model do
 
     let!(:stripe_helper) { StripeMock.create_test_helper }
 
-    context "strip_id is nil" do
+    context "stripe_id is nil" do
       subject { FactoryGirl.create(:member, stripe_id: nil) }
 
       it "raises" do
@@ -94,6 +94,12 @@ RSpec.describe Member, type: :model do
 
       its(:stripe_customer) { is_expected.to be_present }
     end
+  end
+
+  describe "#stripe_dashboard_url" do
+    subject { build(:member, stripe_id: 'tok_1') }
+
+    its(:stripe_dashboard_url) { is_expected.to eq('https://dashboard.stripe.com/customers/tok_1') }
   end
 
   context "scopes" do

@@ -61,4 +61,8 @@ class Member < ActiveRecord::Base
   def stripe_customer
     Stripe::Customer.retrieve(stripe_id)
   end
+
+  def stripe_dashboard_url
+    "https://dashboard.stripe.com/customers/#{stripe_id}"
+  end
 end
