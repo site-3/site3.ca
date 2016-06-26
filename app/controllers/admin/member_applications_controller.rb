@@ -8,7 +8,7 @@ class Admin::MemberApplicationsController < ApplicationController
       nil
     end
 
-    @member_applications = MemberApplication.all
+    @member_applications = MemberApplication.all.order(created_at: :desc)
   end
 
   def approve

@@ -5,12 +5,17 @@
     %p <strong>#{ @member.name}</strong> isn't a member yet!
     %ol
       %li
-        Add the following line to #{ link_to "doorbot file", Rails.application.secrets.github_membership_file_url, target: :blank }:
+        - if @member.stripe_id.present?
+          Payment: Make sure this user has an appropriate #{ link_to 'Stripe subscription', @member.stripe_dashboard_url, target: :blank }
+        - else
+          Payment: If this member isn't paying by Stripe let the membership person know the amount paid
+      %li
+        Fob: Add the following line to #{ link_to "doorbot file", Rails.application.secrets.github_membership_file_url, target: :blank }:
         %code= @member.to_csv_line
       %li
-        If they are paying by Stripe make sure to set up an appropriate subscription #{ @member.stripe_customer }
+        Entry: Show them how to use the door downstairs (and make sure they got the welcome email)
       %li
-        Show them how to use the door downstairs (and make sure they got the welcome email)
+        Mailing list: Add <code>#{ @member.email }</code> to the #{ link_to 'member mailing list', 'http://lists.site3.ca/admin.cgi/members-site3.ca/members/add' }
 
 - if @member_applications
   %table.table
