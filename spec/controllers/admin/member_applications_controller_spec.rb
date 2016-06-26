@@ -52,11 +52,7 @@ RSpec.describe Admin::MemberApplicationsController, type: :controller do
     context "with param[:welcome_email] = true" do
       it "Sends an email" do
         expect(MemberMailer).to receive(:welcome_email).and_call_original
-        expect(ActionMailer::Base.deliveries).to be_empty
-
-        go!(params.merge({welcome_email: true}))
-
-        expect(ActionMailer::Base.deliveries).not_to be_empty
+        expect { go!(params.merge({welcome_email: true})) }.to change(ActionMailer::Base.deliveries, :size).by(1)
       end
     end
 
