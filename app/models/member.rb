@@ -49,7 +49,7 @@ class Member < ActiveRecord::Base
   end
 
   def to_csv_line
-    [name, email, "Associate", "9999/12/1", stripe_id, rfid, notes].join(",")
+    [name, email, "Associate", "", stripe_id, rfid, notes].join(",")
   end
 
   def to_builder
