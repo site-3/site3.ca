@@ -25,10 +25,6 @@ gem 'paper_trail' # Version everything!
 # Make stripe payments for the vending machine
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 
-group :development do
-  gem 'letter_opener'
-end
-
 group :development, :test do
   gem 'sqlite3'
 
@@ -47,6 +43,10 @@ group :development, :test do
   gem 'rubocop', require: false
 
   gem 'pry'
+end
+
+group :development do
+  gem 'letter_opener'
 end
 
 group :test do
