@@ -21,7 +21,8 @@ class Admin::MemberApplicationsController < ApplicationController
     end
 
     if params[:welcome_email].present?
-      MemberMailer.welcome_email(@member)
+      # This could be async if we wanted to pay for worker instances
+      MemberMailer.welcome_email(@member).deliver_now
     end
 
     redirect_to admin_member_applications_path(approved_member: @member.id)
