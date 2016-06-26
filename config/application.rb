@@ -23,16 +23,6 @@ module Site3Members
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    ActionMailer::Base.smtp_settings = {
-      address: 'smtp.sendgrid.net',
-      port: 587,
-      user_name: 'apikey',
-      password: Rails.application.secrets.sendgrid_api_key,
-      domain: Rails.application.secrets.mailer_host,
-      authentication: :plain,
-      enable_starttls_auto: true,
-    }
-
     config.action_mailer.default_url_options = { host: Rails.application.secrets.mailer_host }
   end
 end
