@@ -14,6 +14,8 @@
         %code= @member.to_csv_line
       %li
         Entry: Show them how to use the door downstairs (and make sure they got the welcome email)
+      %li
+        Mailing list: Add <code>#{ @member.email }</code> to the #{ link_to 'member mailing list', 'http://lists.site3.ca/admin.cgi/members-site3.ca/members/add' }
 
 - if @member_applications
   %table.table
