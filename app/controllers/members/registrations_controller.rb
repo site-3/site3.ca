@@ -1,6 +1,6 @@
 class Members::RegistrationsController < Devise::RegistrationsController
-  before_filter :configure_sign_up_params, only: [:create]
-  before_filter :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
 protected
   # Don't reqire the password to update a Member
@@ -14,11 +14,11 @@ protected
 
   # You can put the params you want to permit in the empty array.
   def configure_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :enable_vending_machine])
   end
 
   # You can put the params you want to permit in the empty array.
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update) << :name << :enable_vending_machine
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :enable_vending_machine])
   end
 end
