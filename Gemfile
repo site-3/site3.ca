@@ -41,6 +41,7 @@ group :development, :test do
   gem 'guard-rspec'
 
   gem 'rubocop', require: false
+  gem 'bundler-audit', require: false
 
   gem 'pry'
 end
