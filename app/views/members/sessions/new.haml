@@ -2,11 +2,9 @@
 
 - if devise_mapping.omniauthable?
   .oauth-buttons
-    - resource_class.omniauth_providers.each do |provider|
-      %a.btn.btn-primary.btn-block{href: member_omniauth_authorize_path(provider)}
-        - if provider == :facebook
-          = fa_icon "facebook-official"
-        Log in with #{provider.to_s.titleize}
+    %a.btn.btn-primary.btn-block{href: member_facebook_omniauth_authorize_path}
+      = fa_icon "facebook-official"
+      Log in with Facebook
 
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 
