@@ -66,6 +66,11 @@ RSpec.describe Member, type: :model do
   describe "#to_csv_line" do
     subject { build(:member, rfid: "testrfid", email: "build@example.com", notes: "Grouped with Other Person") }
     its(:to_csv_line) { is_expected.to eq("#{subject.name},#{subject.email},Associate,,#{subject.stripe_id},#{subject.rfid},Grouped with Other Person,") }
+
+    context "note includes quotes and comma" do
+      subject { build(:member, rfid: "testrfid", email: "build@example.com", notes: %q(Grouped with 'Test "Person" 2', currently AiR)) }
+      its(:to_csv_line) { is_expected.to eq(%Q(#{subject.name},#{subject.email},Associate,,#{subject.stripe_id},#{subject.rfid},"Grouped with 'Test ""Person"" 2', currently AiR",)) }
+    end
   end
 
   describe "#to_builder" do

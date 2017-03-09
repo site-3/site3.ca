@@ -1,3 +1,5 @@
+require 'csv'
+
 #
 # A Member is someone who has a subscription at Site 3 or is interested in one
 #
@@ -49,7 +51,7 @@ class Member < ActiveRecord::Base
   end
 
   def to_csv_line
-    csv_fields.join(",")
+    CSV.generate_line(csv_fields, {row_sep: nil})
   end
 
   def to_builder
@@ -70,8 +72,8 @@ class Member < ActiveRecord::Base
 
   def csv_fields
     membership_type = 'Associate'
-    paid_until = ''
-    locker_number = ''
+    paid_until = nil
+    locker_number = nil
 
     [name, email, membership_type, paid_until, stripe_id, rfid, notes, locker_number]
   end
