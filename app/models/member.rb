@@ -1,7 +1,8 @@
 require 'csv'
 
 #
-# A Member is someone who has a subscription at Site 3 or is interested in one
+# A Member is someone who has a subscription at Site 3 or had one in the past.
+# Usually created by approving a MemberApplication.
 #
 
 class Member < ActiveRecord::Base
