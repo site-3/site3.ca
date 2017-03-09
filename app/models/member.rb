@@ -1,5 +1,8 @@
+require 'csv'
+
 #
-# A Member is someone who has a subscription at Site 3 or is interested in one
+# A Member is someone who has a subscription at Site 3 or had one in the past.
+# Usually created by approving a MemberApplication.
 #
 
 class Member < ActiveRecord::Base
@@ -49,7 +52,7 @@ class Member < ActiveRecord::Base
   end
 
   def to_csv_line
-    [name, email, "Associate", "", stripe_id, rfid, notes].join(",")
+    CSV.generate_line(csv_fields, {row_sep: nil})
   end
 
   def to_builder
@@ -64,5 +67,15 @@ class Member < ActiveRecord::Base
 
   def stripe_dashboard_url
     "https://dashboard.stripe.com/customers/#{stripe_id}"
+  end
+
+  private
+
+  def csv_fields
+    membership_type = 'Associate'
+    paid_until = nil
+    locker_number = nil
+
+    [name, email, membership_type, paid_until, stripe_id, rfid, notes, locker_number]
   end
 end
