@@ -65,7 +65,7 @@ RSpec.describe Member, type: :model do
 
   describe "#to_csv_line" do
     subject { build(:member, rfid: "testrfid", email: "build@example.com", notes: "Grouped with Other Person") }
-    its(:to_csv_line) { is_expected.to eq("#{subject.name},#{subject.email},Associate,,#{subject.stripe_id},#{subject.rfid},Grouped with Other Person") }
+    its(:to_csv_line) { is_expected.to eq("#{subject.name},#{subject.email},Associate,,#{subject.stripe_id},#{subject.rfid},Grouped with Other Person,") }
   end
 
   describe "#to_builder" do

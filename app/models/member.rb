@@ -49,7 +49,7 @@ class Member < ActiveRecord::Base
   end
 
   def to_csv_line
-    [name, email, "Associate", "", stripe_id, rfid, notes].join(",")
+    csv_fields.join(",")
   end
 
   def to_builder
@@ -64,5 +64,15 @@ class Member < ActiveRecord::Base
 
   def stripe_dashboard_url
     "https://dashboard.stripe.com/customers/#{stripe_id}"
+  end
+
+  private
+
+  def csv_fields
+    membership_type = 'Associate'
+    paid_until = ''
+    locker_number = ''
+
+    [name, email, membership_type, paid_until, stripe_id, rfid, notes, locker_number]
   end
 end
