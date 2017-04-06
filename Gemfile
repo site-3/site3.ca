@@ -39,6 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-its'
   gem 'guard-rspec'
+  gem 'rails-controller-testing'
 
   gem 'rubocop', require: false
   gem 'bundler-audit', require: false
