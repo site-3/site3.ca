@@ -1,4 +1,4 @@
-class OauthIdentity < ActiveRecord::Base
+class OauthIdentity < ApplicationRecord
   belongs_to :member
 
   validates :member, presence: true

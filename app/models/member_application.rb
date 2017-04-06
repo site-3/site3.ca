@@ -3,7 +3,7 @@
 # not all Members will fill in a MemberApplication.
 #
 
-class MemberApplication < ActiveRecord::Base
+class MemberApplication < ApplicationRecord
   has_paper_trail
 
   belongs_to :member

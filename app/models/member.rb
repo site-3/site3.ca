@@ -5,7 +5,7 @@ require 'csv'
 # Usually created by approving a MemberApplication.
 #
 
-class Member < ActiveRecord::Base
+class Member < ApplicationRecord
   has_paper_trail
 
   devise :database_authenticatable, :registerable,
