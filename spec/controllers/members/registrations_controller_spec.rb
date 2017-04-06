@@ -8,7 +8,7 @@ RSpec.describe Members::RegistrationsController, type: :controller do
     end
 
     def go!(params)
-      post :create, params
+      post :create, params: params
     end
 
     let(:params) do
@@ -42,7 +42,7 @@ RSpec.describe Members::RegistrationsController, type: :controller do
     end
 
     def go!(params)
-      put :update, params
+      put :update, params: params
     end
 
     let(:params) do

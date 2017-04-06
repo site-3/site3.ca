@@ -4,7 +4,7 @@ RSpec.describe DoorbotMembersController, type: :controller do
 
   describe "#index" do
     def go!(token)
-      get :index, {token: token}
+      get :index, params: {token: token}
     end
 
     context "with correct token" do

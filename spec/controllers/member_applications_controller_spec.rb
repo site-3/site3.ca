@@ -18,7 +18,7 @@ RSpec.describe MemberApplicationsController, type: :controller do
 
   describe "#create" do
     def go!(params)
-      post :create, params
+      post :create, params: params
     end
 
     context "with all required params" do

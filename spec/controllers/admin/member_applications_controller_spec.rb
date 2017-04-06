@@ -29,7 +29,7 @@ RSpec.describe Admin::MemberApplicationsController, type: :controller do
 
   describe "#approve" do
     def go!(params)
-      post :approve, params
+      post :approve, params: params
     end
 
     let(:params) do

@@ -5,7 +5,7 @@ RSpec.describe CardsController, type: :controller do
 
   describe "#create" do
     def go!(token)
-      post :create, {id: token}
+      post :create, params: {id: token}
     end
 
     context "for an known user" do

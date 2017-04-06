@@ -6,7 +6,7 @@ RSpec.describe Members::SessionsController, type: :controller do
     before { set_devise_mapping(:member) }
 
     def go!(params)
-      post :create, params
+      post :create, params: params
     end
 
     context "with correct password" do
@@ -20,7 +20,7 @@ RSpec.describe Members::SessionsController, type: :controller do
       end
 
       it "redirects to correct page" do
-        post :create, params
+        go!(params)
         expect(response).to redirect_to(edit_member_registration_path)
       end
     end
