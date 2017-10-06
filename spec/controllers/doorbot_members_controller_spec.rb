@@ -28,7 +28,7 @@ RSpec.describe DoorbotMembersController, type: :controller do
       let(:token) { "incorrect_token" }
 
       it "does not return members" do
-        expect { go!(token) }.to raise_error
+        expect { go!(token) }.to raise_error(RuntimeError)
       end
     end
   end

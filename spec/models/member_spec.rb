@@ -88,7 +88,7 @@ RSpec.describe Member, type: :model do
       subject { FactoryGirl.create(:member, stripe_id: nil) }
 
       it "raises" do
-        expect { subject.stripe_customer }.to raise_error
+        expect { subject.stripe_customer }.to raise_error(Stripe::InvalidRequestError)
       end
     end
 
