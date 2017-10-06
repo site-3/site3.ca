@@ -22,7 +22,7 @@ RSpec.describe Admin::MemberApplicationsController, type: :controller do
       before { sign_in FactoryGirl.create(:member) }
 
       it "blocks unauthenticated access" do
-        expect { go! }.to raise_error
+        expect { go! }.to raise_error(ActionController::RoutingError)
       end
     end
   end
@@ -60,7 +60,7 @@ RSpec.describe Admin::MemberApplicationsController, type: :controller do
       before { sign_in FactoryGirl.create(:member) }
 
       it "blocks unauthenticated access" do
-        expect { go! }.to raise_error
+        expect { go!(params) }.to raise_error(ActionController::RoutingError)
       end
     end
   end
