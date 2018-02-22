@@ -17,7 +17,7 @@
     .form-group
       %label.control-label
         Card Number
-      <input type="text" size="20" data-stripe="number" class="form-control">
+      <input type="text" size="20" data-stripe="number" class="form-control" autocomplete="off" />
 
     .form-group
       .row
@@ -27,11 +27,11 @@
           %label.control-label CVC
       .row
         .col-md-3
-          <input type="text" size="2" data-stripe="exp_month" class="form-control">
+          <input type="text" size="2" data-stripe="exp_month" class="form-control" autocomplete="off" />
         .col-md-3
-          <input type="text" size="2" data-stripe="exp_year" class="form-control">
+          <input type="text" size="2" data-stripe="exp_year" class="form-control" autocomplete="off" />
         .col-md-6
-          <input type="text" size="4" data-stripe="cvc" class="form-control">
+          <input type="text" size="4" data-stripe="cvc" class="form-control" autocomplete="off" />
       = f.hidden_field :stripe_payment_token
 
       <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
