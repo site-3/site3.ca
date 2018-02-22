@@ -12,6 +12,8 @@ class MemberApplicationsController < ApplicationController
       @member_application.create_stripe_customer
     end
 
+    MemberApplicationMailer.created(@member_application).deliver_now
+
     respond_to do |format|
       format.json do
         if @member_application.save

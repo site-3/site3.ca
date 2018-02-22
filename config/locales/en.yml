@@ -33,3 +33,5 @@ en:
     google_calendar: "https://www.google.com/calendar/embed?src=events%40site3.ca&ctz=America/Toronto"
   address:
     full: "718R Ossington Ave, Toronto, ON M6G 2T7"
+  email_titles:
+    membership_application_created: "Site 3 Membership Application Received!"
