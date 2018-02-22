@@ -40,6 +40,11 @@ RSpec.describe MemberApplicationsController, type: :controller do
         expect{ go!(member_application_params) }.to change(MemberApplication, :count).by(1)
       end
 
+      it "sends an email" do
+        expect(MemberApplicationMailer).to receive(:application_submitted).and_call_original
+        expect { go!(member_application_params) }.to change(ActionMailer::Base.deliveries, :size).by(1)
+      end
+
       context "with a stripe_payment_token" do
         let(:stripe_payment_token) { stripe_helper.generate_card_token }
 

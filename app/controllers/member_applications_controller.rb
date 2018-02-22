@@ -1,6 +1,8 @@
 class MemberApplicationsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
+  after_action :send_member_application_email, only: :create
+
   def new
     @member_application = MemberApplication.new
   end
@@ -11,8 +13,6 @@ class MemberApplicationsController < ApplicationController
     if @member_application.create_stripe_customer?
       @member_application.create_stripe_customer
     end
-
-    MemberApplicationMailer.created(@member_application).deliver_now
 
     respond_to do |format|
       format.json do
@@ -43,5 +43,11 @@ private
 
   def after_create_path
     root_path
+  end
+
+  def send_member_application_email
+    if @member_application.valid?
+      MemberApplicationMailer.application_submitted(@member_application).deliver_now
+    end
   end
 end
