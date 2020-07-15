@@ -1,34 +1,77 @@
-<p>The door code is <b><%= Rails.application.secrets.door_code %></b>. Unlock the deadbolt <i>before</i> scanning your fob, the fob only unlocks the handle for 5 seconds.</p>
-
-<p><b>Exit Procedure</b></p>
-
-<p>If you are the last one sure make sure that:</p>
-<ul>
-   <li>the door handle and deadbolt are locked</li>
-   <li>all lights are off</li>
-   <li>all windows are closed and locked</li>
-   <li>the thermostat is set to a reasonable temperature</li>
+<div>
+<div style="width: 7.604in;">
+<div style="width: 7.604in;">
+<p style="font-size: 11pt;"><span style="font-size: 16px;">Greetings, and welcome to Site 3 Colaboratory. Please read this message completely, and save it for future reference. It contains everything you need to know about getting in (and out) of the building, your responsibilities as a member, and how to make the most of your membership. </span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong>Getting In</strong></span></p>
+<ol style="font-size: 12pt;">
+    <li value="1">Unlock the deadbolt, the code is 1528</li>
+    <li>Scan your fob on the reader (the red indicator), the light will turn green for 5 seconds.</li>
+    <li>Open the door while the light is green.</li>
+</ol>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong>Leaving the Building</strong></span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;">If you are the last one out, please make sure that:</span></p>
+<ol style="font-size: 12pt;">
+    <li value="1">All lights are off</li>
+    <li>All windows are closed and locked</li>
+    <li>The thermostat is set to a reasonable temperature (10C in winter, off in the summer)</li>
+    <li>The doorknob (push-button) is locked</li>
+    <li>The deadbolt is locked (press the lock button, then turn the knob clock-wise)</li>
+</ol>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong><br />
+</strong><strong>Connecting to WiFi</strong></span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;">Our Wifi network is "Site 3" and the password is "makestuff".</span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong>Getting involved</strong></span></p>
+<p style="font-size: 10.5pt;"><span style="font-size: 16px;">There are always things to do at the Shop. Here are a few things to get you up to speed:</span></p>
+<ul style="list-style-type: disc;">
+    <li><span style="font-size: 16px;">Come to open house on Thursdays or Ladies LGBTQ open house on Tuesdays. This is a great time to meet other members and get on board with projects in progress. If you know someone else who might be interested in joining our community, please bring them out for a tour.</span></li>
+    <li><span style="font-size: 16px;">Get involved in monthly Shop Clean Up Days (SCUD). These are usually on the last weekend of the month, please drop in and help out. New members are required to help with SCUD in their first 2 months. This work gets a lot of notice and helps your reputation at the shop.</span></li>
+    <li><span style="font-size: 16px;">Get certified to use the shop's equipment.  Areas that require certification include: woodworking (large power tools), metalwork (milling machine and lathe), welding, glasswork, laser cutting, CNC equipment (metal mill and CNC router), and 3D printing. All our workshops and courses are listed on our <a href="http://www.eventbrite.ca/o/site-3-colaboratory-532442187">Eventbrite</a>page, and many are announced on the mailing list and Facebook page. If you feel you already have sufficient knowledge to use a tool, you can also demonstrate your competency with an instructor to become “certified,” in which case you are asked to consider making a donation for equipment upkeep ($20 suggested).</span></li>
+    <li><span style="font-size: 16px;">Get active on the mailing list. Once you receive the welcome message from <a>members@lists.site3.ca</a>, go ahead and send a brief introduction telling us who you are and what interests brought you to our maker community. The mailing is also where people announce and express interest in helping with projects for Nuit Blanche, Maker Festival, and other local events.</span></li>
+    <li><span style="font-size: 16px;">Follow Site 3 events. Site 3 has a <a href="https://www.google.com/calendar/embed?src=events%40site3.ca&ctz=America/Toronto">calendar</a> which you can add to iCal or Google Calendar using the button at the bottom right. You may also want to join the <a href="https://www.facebook.com/groups/407649745533/">Facebook Group</a> and like our <a href="https://www.facebook.com/site3colab?fref=ts">Page</a>.</span></li>
 </ul>
-
-<p><b>Safety</b></p>
-
-
-<p>If you hurt yourself or damage a tool you <b>MUST</b> email <%= mail_to t('email') %>! (Once you've dealt with any immediate issues.)</p>
-
-<p><b>Mailing List</b></p>
-
-<p>You will see a public "new member" email about you shortly, reply and tell us a bit more about yourself! Email <%= mail_to t('mailing_list') %> to ask questions about tools, project help, etc. If you have questions or concerns about the shop you can reach myself and some other helpful people at <%= mail_to t('email') %>.</p>
-
-<p><b>Events / Classes</b></p>
-
-<p>We have monthly shop cleanup day (SCUD) that is usually the last Saturday of the month. (By the way Site 3 has a <a href="<%= t('urls.google_calendar') %>">calendar</a> which you can add to iCal or Google Calendar using the button at the bottom right.)</p>
-
-<p>Class tickets for laser cutter and 3D printing and more are available on <a href="<%= t('urls.eventbrite') %>">Eventbrite</a>. You may also want to join the <a href="<%= t('urls.facebook_group') %>">Facebook Group</a> and like our <a href="<%= t('urls.facebook') %>">Facebook Page</a>.</p>
-
-<p><b>Facilities / Supplies</b></p>
-
-<p> Many of our tools are do not require training if you are already familiar with that tool (eg. wrenches, drills, hammers, etc.) Other tools like the laser cutter and CNC mill require specific training even if you have used similar tools in the past. If you are not sure then ask first. Make sure to put back everything you use back in the proper place and clean up after yourself.</p>
-
-<p>We have some consumable supplies, generally if you are working on a project you should bring what you need to complete it. Most consumables will have a recommended donation notice near them (eg. sewing needles for the machines, resistors near the electronics bench.) Unlabelled wood in storage can be purchased from the shop.</p>
-
-<p>Our Wifi network is "Site 3" and the password is "<%= Rails.application.secrets.wifi_password %>".</p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong>Safety</strong></span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;">If you hurt yourself or damage a tool you MUST <a>email</a> us, once you've dealt with any immediate issues.</span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong>Mailing List and E-mail Addresses</strong></span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;">You will see a public "new member" email about you shortly, reply and tell us a bit more about yourself!</span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;">Email <a>members@lists.site3.ca</a> to ask questions about tools, get help with projects, etc.</span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;">If you have questions or concerns about the shop you can reach myself and some other helpful people at <a>info@site3.ca</a>.</span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong>Facilities and Supplies</strong></span></p>
+<ul style="list-style-type: disc;">
+    <li><span style="font-size: 16px;">Keep the shop clean. Always try to leave the shop cleaner than you found it, and put everything you use back into its proper place.</span></li>
+    <li><span style="font-size: 16px;">Please carry out food waste. Sometimes it takes weeks for bins to fill up, please use them only for non-perishable garbage.</span></li>
+    <li><span style="font-size: 16px;">Bring your own materials and consumables (glue, sanding belts, paint, screws, etc.). If you use materials and consumables from the shop's stock, please make a payment into the donation/dues box. Wood and plastic available in the shop have prices clearly marked right on the piece, and other areas have signs with suggested donations (e.g. sewing needles for the machines, or resistors and parts near the electronics bench).</span></li>
+    <li><span style="font-size: 16px;">Put your name clearly and permanently on all your materials and belongings. Don't leave stuff laying about, it will get moved into the “Bin of Shame” for a month and then tossed.</span></li>
+    <li><span style="font-size: 16px;">If you have an active project taking up space at the shop (like after assembling, gluing or painting), place the project out of the way, take a picture and send an email to the list noting when it will be removed.</span></li>
+    <li><span style="font-size: 16px;">If you break something, please report it immediately and make arrangements to repair the damage. Don't be "THAT PERSON."</span></li>
+</ul>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong>Monthly Meetings at Site 3</strong></span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;">A variety of groups meet every month:</span></p>
+<ul style="list-style-type: disc;">
+    <li><span style="font-size: 16px;">Toronto Open Organization of Lockpickers (TOOOL): First Wednesday of each month. Meetings are free to attend, please RSVP at: <a href="https://www.meetup.com/Toool_Toronto/">https://www.meetup.com/Toool_Toronto/</a></span></li>
+    <li><span style="font-size: 16px;">Toronto Electronics Meetup (TEM):  Second Wednesday of every month. Free for Site 3 members, $5 for non-members, please RSVP at: <a href="https://www.meetup.com/Toronto-Electronics-Meetup/">https://www.meetup.com/Toronto-Electronics-Meetup/</a></span></li>
+    <li><span style="font-size: 16px;">Men’s Sewing Night: Last Monday of every month. Site 3 members are welcome to attend, no RSVP needed. </span></li>
+</ul>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong><br />
+Site 3 Links</strong></span></p>
+<ul style="list-style-type: disc;">
+    <li><span style="font-size: 16px;">Site 3 website: <a href="http://www.site3.ca/">http://www.site3.ca/</a></span></li>
+    <li><span style="font-size: 16px;">Manage your Site 3 membership, including credit card info and vending machine authorization: <a href="http://www.site3.ca/members/sign_in">http://www.site3.ca/members/sign_in</a></span></li>
+    <li><span style="font-size: 16px;">Site 3 Wiki page: <a href="http://wiki.site3.ca/Main_Page">http://wiki.site3.ca/Main_Page</a></span></li>
+    <li><span style="font-size: 16px;">Site 3 Facebook group: <a href="https://www.facebook.com/site3colab/">https://www.facebook.com/site3colab/</a></span></li>
+    <li><span style="font-size: 16px;">Site 3 Eventbrite: https<a href="https://www.eventbrite.ca/o/site-3-colaboratory-532442187">://www.eventbrite.ca/o/site-3-colaboratory-532442187</a></span></li>
+</ul>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><strong><br />
+Dues</strong></span></p>
+<p style="font-size: 10.5pt;"><span style="font-size: 16px;">As a new member, you will first see a prorated charge for the remainder of the current month. Thereafter, dues for the upcoming month are processed on the 24th of each month. If a payment fails for any reason, this gives people a few days to stay up-to-date. </span></p>
+<p style="font-size: 10.5pt;"><span style="font-size: 16px;">For example, if you joined on April 2, and there are 30 days in April, the prorated amount is: </span></p>
+<p style="font-size: 10.5pt;"><span style="font-size: 16px;">     (30 days- 2) x ($40 / 30 days) = 28 x 1.93 = $37.33</span></p>
+<p style="font-size: 10.5pt;"><span style="font-size: 16px;">The first monthly payment would appear on April 24 for $40, and at that point you would be paid up through the end of May. </span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;"><br />
+Thanks for taking the time to read all the way through, see you at the shop!</span></p>
+<p style="font-size: 11pt;"><span style="font-size: 16px;">Take care,<br />
+Eli Robillard, Membership Chair<br />
+Mobile: 416 317 6729 </span></p>
+<p style="font-size: 11pt;"> </p>
+</div>
+</div>
+</div>
